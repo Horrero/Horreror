@@ -4,6 +4,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { shades } from "../../theme";
+import { useTranslation } from "react-i18next";
 
 // Imports all image from assets folder
 const importAll = (requireContext) => requireContext.keys().map(requireContext);
@@ -13,6 +14,7 @@ const heroTextureImports = importAll(
 );
 
 const MainCarousel = () => {
+  const { t } = useTranslation();
   const isNonMobile = useMediaQuery("(min-width:600px");
 
   return (
@@ -75,14 +77,16 @@ const MainCarousel = () => {
             margin={isNonMobile ? undefined : "0"}
             maxWidth={isNonMobile ? undefined : "240px"}
           >
-            <Typography color={shades.secondary[200]}>-- NEW ITEMS</Typography>
-            <Typography variant="h1">Summer Sale</Typography>
+            <Typography color={shades.secondary[200]}>
+              {t("newItems")}
+            </Typography>
+            <Typography variant="h1">{t("summerSale")}</Typography>
             <Typography
               fontWeight="bold"
               color={shades.secondary[300]}
               sx={{ textDecoration: "underline" }}
             >
-              Discover More
+              {t("discoverMore")}
             </Typography>
           </Box>
         </Box>
