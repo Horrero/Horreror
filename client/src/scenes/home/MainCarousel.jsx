@@ -1,4 +1,4 @@
-import { Box, Typography, useMediaQuery } from "@mui/material";
+import { Box, Button, Typography, useMediaQuery } from "@mui/material";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { shades } from "../../theme";
 import { useTranslation } from "react-i18next";
@@ -25,26 +25,34 @@ const MainCarousel = () => {
         color="white"
         padding="20px"
         borderRadius="1px"
-        textAlign="left"
-        backgroundColor="rgba(0, 0, 0, 0.4)"
+        textAlign="center"
+        // backgroundColor="rgba(0, 0, 0, 0.4)"
         position="absolute"
-        top="46%"
-        left={isNonMobile ? "10%" : "0"}
-        right={isNonMobile ? undefined : "0"}
-        margin={isNonMobile ? undefined : "0"}
-        maxWidth={isNonMobile ? undefined : "240px"}
+        top="0"
+        bottom="150px"
+        left="0"
+        right="0"
+        maxWidth="280px"
+        maxHeight="fit-content"
+        margin="auto"
       >
-        <Typography color={shades.secondary[200]}>
-          {t("newItems")}
+        <Typography variant="h1" fontSize={"50px"} color="darkRed">
+          Horreror
         </Typography>
-        <Typography variant="h1">{t("summerSale")}</Typography>
         <Typography
           fontWeight="bold"
-          color={shades.secondary[300]}
-          sx={{ textDecoration: "underline" }}
         >
-          {t("discoverMore")}
+          NQKAKUV QUOTE
         </Typography>
+        <Button
+        m="30"
+        sx={{ backgroundColor: shades.primary[300], color: "white" }}
+        onClick={() => {
+          document.location.href = "#shopping-list";
+        }}
+        >
+          Order Now
+        </Button>
       </Box>
     </Box>
   );

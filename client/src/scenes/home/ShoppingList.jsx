@@ -41,7 +41,7 @@ const ShoppingList = () => {
   );
 
   return (
-    <Box width="80%" margin="80px auto">
+    <Box id="shopping-list" width="80%" margin="80px auto">
       <Typography variant="h3" textAlign="center">
         Our Feature <b>Products</b>
       </Typography>
