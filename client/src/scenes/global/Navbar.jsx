@@ -3,17 +3,24 @@ import { Badge, Box, IconButton } from "@mui/material";
 import {
   PersonOutline,
   ShoppingBagOutlined,
-  MenuOutlined,
+  // MenuOutlined,
   SearchOutlined,
 } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { shades } from "../../theme";
 import { setIsCartOpen } from "../../state";
+import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
+  const { i18n } = useTranslation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.cart);
+
+  const changeLanguage = (lng) => {
+    localStorage.setItem("lang", lng)
+    i18n.changeLanguage(lng);
+  };
 
   return (
     <Box
@@ -48,11 +55,11 @@ const Navbar = () => {
           columnGap="20px"
           zIndex="2"
         >
-          <IconButton sx={{ color: "black" }} style={{display: "none"}}>
+          <IconButton sx={{ color: "black" }} style={{ display: "none" }}>
             <SearchOutlined />
           </IconButton>
           {/* ACCOUNT BUTTON */}
-          <IconButton sx={{ color: "black" }} style={{display: "none"}}>
+          <IconButton sx={{ color: "black" }} style={{ display: "none" }}>
             <PersonOutline />
           </IconButton>
           <Badge
@@ -76,9 +83,11 @@ const Navbar = () => {
               <ShoppingBagOutlined />
             </IconButton>
           </Badge>
-          <IconButton sx={{ color: "black" }} style={{display: "none"}}>
+          {/* <IconButton sx={{ color: "black" }} style={{display: "none"}}>
             <MenuOutlined />
-          </IconButton>
+          </IconButton> */}
+          <button onClick={() => changeLanguage("en")}>EN</button>
+          <button onClick={() => changeLanguage("bg")}>BG</button>
         </Box>
       </Box>
     </Box>
