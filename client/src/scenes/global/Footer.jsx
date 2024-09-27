@@ -68,8 +68,6 @@ const Footer = () => {
           <Typography variant="h5" mb="30px">
             123 Maple Street, Toronto, Ontario, M1A 1A1
           </Typography>
-          <Typography variant="h5" mb="30px">Email: jane.doe1234@example.com</Typography>
-          <Typography variant="h5" mb="30px">+1 555-123-4567</Typography>
         </Box>
       </Box>
     </Box>
