@@ -1,7 +1,7 @@
-import { Box, Button, Typography, useMediaQuery } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { shades } from "../../theme";
-import { useTranslation } from "react-i18next";
+// import { useTranslation } from "react-i18next";
 
 import heroTextureImport from "../../assets/main.png";
 
