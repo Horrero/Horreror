@@ -6,8 +6,8 @@ import { useTranslation } from "react-i18next";
 import heroTextureImport from "../../assets/main.png";
 
 const MainCarousel = () => {
-  const { t } = useTranslation();
-  const isNonMobile = useMediaQuery("(min-width:600px");
+  // const { t } = useTranslation();
+  // const isNonMobile = useMediaQuery("(min-width:600px");
 
   return (
     <Box key={`image`}>
