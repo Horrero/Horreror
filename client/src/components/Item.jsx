@@ -82,13 +82,13 @@ const Item = ({ item, width }) => {
         </Box>
       </Box>
       <Box mt="3px">
-        <Typography variant="subtitle2" color={neutral.dark}>
+        <Typography fontFamily={"Rubik Wet Paint"} fontSize={"16px"} variant="subtitle2" color={neutral.dark}>
           {category
             .replace(/([A-Z])/g, " $1")
             .replace(/^./, (str) => str.toUpperCase())}
         </Typography>
-        <Typography>{name}</Typography>
-        <Typography fontWeight="bold">${price}</Typography>
+        <Typography fontFamily={"Rubik Wet Paint"} fontSize={"24px"}>{name}</Typography>
+        <Typography fontWeight="bold" fontSize={"20px"}>${price}</Typography>
       </Box>
     </Box>
   );

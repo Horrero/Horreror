@@ -27,7 +27,7 @@ const Footer = () => {
           >
             ECOMMER
           </Typography>
-          <div>
+          <Typography variant="h5">
             Discover endless possibilities with our premium selection of
             products. Shop now and experience unparalleled quality, style, and
             convenience. From fashion and beauty essentials to home decor and
@@ -38,38 +38,38 @@ const Footer = () => {
             community of satisfied customers and embrace a world of online
             shopping at its finest. Start exploring today and unlock a world of
             limitless shopping possibilities.
-          </div>
+          </Typography>
         </Box>
 
         <Box>
           <Typography variant="h4" fontWeight="bold" mb="30px">
             About Us
           </Typography>
-          <Typography mb="30px">Careers</Typography>
-          <Typography mb="30px">Our Stores</Typography>
-          <Typography mb="30px">Terms & Conditions</Typography>
-          <Typography mb="30px">Privacy Policy</Typography>
+          <Typography variant="h5" mb="30px">Careers</Typography>
+          <Typography variant="h5" mb="30px">Our Stores</Typography>
+          <Typography variant="h5" mb="30px">Terms & Conditions</Typography>
+          <Typography variant="h5" mb="30px">Privacy Policy</Typography>
         </Box>
 
         <Box>
           <Typography variant="h4" fontWeight="bold" mb="30px">
             Customer Care
           </Typography>
-          <Typography mb="30px">Help Center</Typography>
-          <Typography mb="30px">Track Your Order</Typography>
-          <Typography mb="30px">Corporate & Bulk Purchasing</Typography>
-          <Typography mb="30px">Returns & Refunds</Typography>
+          <Typography variant="h5" mb="30px">Help Center</Typography>
+          <Typography variant="h5" mb="30px">Track Your Order</Typography>
+          <Typography variant="h5" mb="30px">Corporate & Bulk Purchasing</Typography>
+          <Typography variant="h5" mb="30px">Returns & Refunds</Typography>
         </Box>
 
         <Box width="clamp(20%, 25%, 30%)">
           <Typography variant="h4" fontWeight="bold" mb="30px">
             Contact Us
           </Typography>
-          <Typography mb="30px">
+          <Typography variant="h5" mb="30px">
             123 Maple Street, Toronto, Ontario, M1A 1A1
           </Typography>
-          <Typography mb="30px">Email: jane.doe1234@example.com</Typography>
-          <Typography mb="30px">+1 555-123-4567</Typography>
+          <Typography variant="h5" mb="30px">Email: jane.doe1234@example.com</Typography>
+          <Typography variant="h5" mb="30px">+1 555-123-4567</Typography>
         </Box>
       </Box>
     </Box>
