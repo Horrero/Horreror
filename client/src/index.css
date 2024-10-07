@@ -17,3 +17,27 @@ body {
   margin: auto;
   color: white;
 }
+
+/* MyForm.css */
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form textarea {
+  background-color: black !important; /* Set background to black */
+  color: white !important;            /* Set text color to white */
+  border: 1px solid #555 !important;  /* Optional: border styling */
+  padding: 10px !important;           /* Optional: padding for better usability */
+  border-radius: 5px !important;      /* Optional: rounded corners */
+}
+
+form input[type="text"]::placeholder,
+form input[type="email"]::placeholder,
+form input[type="password"]::placeholder,
+form textarea::placeholder {
+  color: #bbb;                        /* Optional: lighter color for placeholders */
+}
+
+/* Styles for error messages (optional) */
+.error-message {
+  color: red;                        /* Set error message color */
+}

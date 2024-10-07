@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { Box, IconButton, Typography, Button, Tabs, Tab } from "@mui/material";
+import { Box, IconButton, Typography, Tabs, Tab } from "@mui/material";
 // import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { shades } from "../../theme";
@@ -84,26 +85,29 @@ const ItemDetails = () => {
               mr="20px"
               p="2px 5px"
             >
-              <IconButton onClick={() => setCount(Math.max(count - 1, 0))}>
+              <IconButton style={{color: "white"}} onClick={() => setCount(Math.max(count - 1, 0))}>
                 <RemoveIcon />
               </IconButton>
               <Typography sx={{ p: "0 5px" }}>{count}</Typography>
-              <IconButton onClick={() => setCount(count + 1)}>
+              <IconButton style={{color: "white"}} onClick={() => setCount(count + 1)}>
                 <AddIcon />
               </IconButton>
             </Box>
-            <Button
-              sx={{
-                backgroundColor: "#222222",
-                color: "white",
-                borderRadius: 0,
-                minWidth: "150px",
-                padding: "10px 40px",
+            <IconButton
+              onClick={() => {
+                dispatch(addToCart({ item: { ...item, count } }));
               }}
-              onClick={() => dispatch(addToCart({ item: { ...item, count } }))}
+              sx={{
+                backgroundColor: "darkRed", // Default background color
+                color: "white", 
+                transition: "all 0.3s ease",
+                "&:hover": {
+                  backgroundColor: "rgba(139, 0, 0, 0.6)", // Dark red with less transparency on hover
+                },
+              }}
             >
-              ADD TO CART
-            </Button>
+              <ShoppingCartIcon style={{ transform: "scale(0.75, 0.75)" }} /> {/* Add an icon here */}
+            </IconButton>
           </Box>
 
           <Box>
