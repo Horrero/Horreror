@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Box, IconButton, Typography, useTheme, Button } from "@mui/material";
+import { Box, IconButton, Typography, useTheme } from "@mui/material";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { shades } from "../theme";
 import { addToCart } from "../state";
 import { useNavigate } from "react-router-dom";
-import { Scale } from "@mui/icons-material";
+// import { Scale } from "@mui/icons-material";
 
 // const URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:1337";
 

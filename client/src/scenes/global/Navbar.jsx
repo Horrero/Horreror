@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Badge, Box, IconButton } from "@mui/material";
+import { Box, IconButton } from "@mui/material";
 import {
   PersonOutline,
   ShoppingBagOutlined,

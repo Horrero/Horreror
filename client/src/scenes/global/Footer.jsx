@@ -1,11 +1,11 @@
-import { useTheme } from "@mui/material";
+// import { useTheme } from "@mui/material";
 import { Box, Typography } from "@mui/material";
-import { shades } from "../../theme";
+// import { shades } from "../../theme";
 
 const Footer = () => {
-  const {
-    palette: { neutral },
-  } = useTheme();
+  // const {
+  //   palette: { neutral },
+  // } = useTheme();
 
   return (
     <Box
@@ -26,7 +26,7 @@ const Footer = () => {
         <Box width="clamp(20%, 30%, 40%)">
           <Typography
             variant="h4"
-            fontWeight="bold"
+            // fontWeight="bold"
             mb="30px"
             color="#fff" // set text color to white
           >
@@ -47,7 +47,7 @@ const Footer = () => {
         </Box>
 
         <Box>
-          <Typography variant="h4" fontWeight="bold" mb="30px" color="#fff">
+          <Typography variant="h4" mb="30px" color="#fff">
             About Us
           </Typography>
           <Typography variant="h5" mb="30px" color="#fff">
@@ -65,7 +65,7 @@ const Footer = () => {
         </Box>
 
         <Box>
-          <Typography variant="h4" fontWeight="bold" mb="30px" color="#fff">
+          <Typography variant="h4" mb="30px" color="#fff">
             Customer Care
           </Typography>
           <Typography variant="h5" mb="30px" color="#fff">
@@ -83,7 +83,7 @@ const Footer = () => {
         </Box>
 
         <Box width="clamp(20%, 25%, 30%)">
-          <Typography variant="h4" fontWeight="bold" mb="30px" color="#fff">
+          <Typography variant="h4" mb="30px" color="#fff">
             Contact Us
           </Typography>
           <Typography variant="h5" mb="30px" color="#fff">
