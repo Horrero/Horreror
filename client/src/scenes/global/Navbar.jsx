@@ -7,7 +7,6 @@ import {
   SearchOutlined,
 } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
-import { shades } from "../../theme";
 import { setIsCartOpen } from "../../state";
 import { useTranslation } from "react-i18next";
 
@@ -28,8 +27,8 @@ const Navbar = () => {
       textAlign="center"
       width="100%"
       height="60px"
-      backgroundColor="rgba(255, 255, 255, 0.95)"
-      color="black"
+      backgroundColor="#000" // set background color to black
+      color="#fff" // set text color to white
       position="fixed"
       top="0"
       left="0"
@@ -45,7 +44,7 @@ const Navbar = () => {
         <Box
           onClick={() => navigate("/")}
           sx={{ "&:hover": { cursor: "pointer" } }}
-          color={shades.secondary[500]}
+          color="#fff" // set text color to white
         >
           ECOMMER
         </Box>
@@ -55,34 +54,44 @@ const Navbar = () => {
           columnGap="20px"
           zIndex="2"
         >
-          <IconButton sx={{ color: "black" }} style={{ display: "none" }}>
+          <IconButton sx={{ color: "#fff" }} style={{ display: "none" }}>
             <SearchOutlined />
           </IconButton>
           {/* ACCOUNT BUTTON */}
-          <IconButton sx={{ color: "black" }} style={{ display: "none" }}>
+          <IconButton sx={{ color: "#fff" }} style={{ display: "none" }}>
             <PersonOutline />
           </IconButton>
-          <Badge
-            badgeContent={cart.length}
-            color="secondary"
-            invisible={cart.length === 0}
-            sx={{
-              "& .MuiBadge-badge": {
-                right: 5,
-                top: 5,
-                padding: "0 4px",
-                height: "14px",
-                minWidth: "13px",
-              },
-            }}
-          >
+          <Box sx={{ position: 'relative', display: 'inline-block' }}>
             <IconButton
               onClick={() => dispatch(setIsCartOpen({}))}
-              sx={{ color: "black" }}
+              sx={{ color: "#fff" }}
             >
               <ShoppingBagOutlined />
             </IconButton>
-          </Badge>
+            {cart.length > 0 && (
+              <Box
+                sx={{
+                  position: 'absolute',
+                  top: 2, // Adjust as needed
+                  right: 2, // Adjust as needed
+                  backgroundColor: '#d32f2f', // secondary color
+                  color: 'white',
+                  borderRadius: '50%',
+                  height: '14px',
+                  minWidth: '14px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '16px',
+                  padding: '0 5px',
+                  lineHeight: 1,
+                  paddingLeft: '2px', // Add this to move text 2px to the left
+                }}
+              >
+                {cart.length}
+              </Box>
+            )}
+          </Box>
           {/* <IconButton sx={{ color: "black" }} style={{display: "none"}}>
             <MenuOutlined />
           </IconButton> */}

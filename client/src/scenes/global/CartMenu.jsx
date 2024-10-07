@@ -13,8 +13,6 @@ import {
 } from "../../state";
 import { useNavigate } from "react-router-dom";
 
-// const URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:1337";
-
 // Resuing CSS using Styled Components
 const FlexBox = styled(Box)`
   display: flex;
@@ -34,8 +32,8 @@ const CartMenu = () => {
 
   return (
     <Box //overlay
-      display={isCartOpen ? "block" : "none"}
-      backgroundColor="rgba(0, 0, 0, 0.4)"
+      visibility={isCartOpen ? "visible" : "hidden"} // Use visibility instead of display
+      backgroundColor={`rgba(64, 8, 10, 0.4)`}
       position="fixed"
       zIndex={10}
       width="100%"
@@ -43,6 +41,10 @@ const CartMenu = () => {
       left="0"
       top="0"
       overflow="auto"
+      sx={{
+        opacity: isCartOpen ? 1 : 0,  // Control opacity for smooth fade in/out
+        transition: "opacity 0.3s ease, background-color 0.5s ease", // Smooth transitions
+      }}
     >
       {/* MODAL */}
       <Box
@@ -51,13 +53,14 @@ const CartMenu = () => {
         bottom="0"
         width="max(400px, 30%)"
         height="100%"
-        backgroundColor="white"
+        backgroundColor="#000000"
+        color="white"
       >
         <Box padding="30px" overflow="auto" height="100%">
           {/* HEADER */}
           <FlexBox mb="15px">
             <Typography variant="h3">SHOPPING BAG ({cart.length})</Typography>
-            <IconButton onClick={() => dispatch(setIsCartOpen({}))}>
+            <IconButton style={{color: "white"}} onClick={() => dispatch(setIsCartOpen({}))}>
               <CloseIcon />
             </IconButton>
           </FlexBox>
@@ -99,6 +102,7 @@ const CartMenu = () => {
                         border={`1.5px solid ${shades.neutral[500]}`}
                       >
                         <IconButton
+                          style={{color: "white"}}
                           onClick={() =>
                             dispatch(decreaseCount({ id: item.id }))
                           }
@@ -107,6 +111,7 @@ const CartMenu = () => {
                         </IconButton>
                         <Typography>{item.count}</Typography>
                         <IconButton
+                          style={{color: "white"}}
                           onClick={() =>
                             dispatch(increaseCount({ id: item.id }))
                           }
@@ -122,7 +127,7 @@ const CartMenu = () => {
                     </FlexBox>
                   </Box>
                 </FlexBox>
-                <Divider />
+                <Divider style={{backgroundColor: "white"}} />
               </Box>
             ))}
           </Box>
@@ -135,8 +140,8 @@ const CartMenu = () => {
             </FlexBox>
             <Button
               sx={{
-                backgroundColor: shades.primary[400],
-                color: "white",
+                backgroundColor: '#A41715',
+                color: "black",
                 borderRadius: 0,
                 minWidth: "100%",
                 padding: "20px 40px",

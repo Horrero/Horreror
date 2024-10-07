@@ -59,10 +59,10 @@ const ShoppingList = () => {
           },
         }}
       >
-        <Tab label="ALL" value="all" />
-        <Tab label="NEW ARRIVALS" value="newArrivals" />
-        <Tab label="BEST SELLERS" value="bestSellers" />
-        <Tab label="TOP RATED" value="topRated" />
+        <Tab label="ALL" value="all" style={{color: "white"}} />
+        <Tab label="NEW ARRIVALS" value="newArrivals" style={{color: "white"}} />
+        <Tab label="BEST SELLERS" value="bestSellers" style={{color: "white"}} />
+        <Tab label="TOP RATED" value="topRated" style={{color: "white"}} />
       </Tabs>
       <Box
         margin="0 auto"

@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Box, IconButton, Typography, useTheme, Button } from "@mui/material";
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { shades } from "../theme";
 import { addToCart } from "../state";
 import { useNavigate } from "react-router-dom";
+import { Scale } from "@mui/icons-material";
 
 // const URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:1337";
 
@@ -33,16 +35,16 @@ const Item = ({ item, width }) => {
         onMouseOut={() => setIsHovered(false)}
       >
         {imageUrl && 
-        <img
-          alt={item.name}
-          width="300px"
-          height="400px"
-          src={imageUrl}
-          onClick={() => {
-            navigate(`/item/${item.id}`);
-          }}
-          style={{ cursor: "pointer" }}
-        />
+          <img
+            alt={item.name}
+            width="300px"
+            height="400px"
+            src={imageUrl}
+            onClick={() => {
+              navigate(`/item/${item.id}`);
+            }}
+            style={{ cursor: "pointer" }}
+          />
         }
         <Box
           display={isHovered ? "block" : "none"}
@@ -52,7 +54,7 @@ const Item = ({ item, width }) => {
           width="100%"
           padding="0 5%"
         >
-          <Box display="flex" justifyContent="space-between">
+          <Box display="flex" justifyContent="space-between" style={{marginBottom: "-15px"}}>
             {/* AMOUNT */}
             <Box
               display="flex"
@@ -69,15 +71,22 @@ const Item = ({ item, width }) => {
               </IconButton>
             </Box>
 
-            {/* BUTTON */}
-            <Button
+            {/* BUTTON WITH ICON AND RED BACKGROUND */}
+            <IconButton
               onClick={() => {
                 dispatch(addToCart({ item: { ...item, count } }));
               }}
-              sx={{ backgroundColor: shades.primary[300], color: "white" }}
+              sx={{
+                backgroundColor: "darkRed", // Default background color
+                color: "white", 
+                transition: "all 0.3s ease",
+                "&:hover": {
+                  backgroundColor: "rgba(139, 0, 0, 0.6)", // Dark red with less transparency on hover
+                },
+              }}
             >
-              Add to Cart
-            </Button>
+              <ShoppingCartIcon style={{ transform: "scale(0.75, 0.75)" }} /> {/* Add an icon here */}
+            </IconButton>
           </Box>
         </Box>
       </Box>

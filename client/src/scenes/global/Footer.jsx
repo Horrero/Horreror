@@ -8,7 +8,12 @@ const Footer = () => {
   } = useTheme();
 
   return (
-    <Box mt="70px" p="40px 0" backgroundColor={neutral.light}>
+    <Box
+      mt="70px"
+      p="40px 0"
+      backgroundColor="#000" // set background color to black
+      color="#fff" // set text color to white
+    >
       <Box
         width="80%"
         margin="auto"
@@ -23,11 +28,11 @@ const Footer = () => {
             variant="h4"
             fontWeight="bold"
             mb="30px"
-            color={shades.secondary[500]}
+            color="#fff" // set text color to white
           >
             ECOMMER
           </Typography>
-          <Typography variant="h5">
+          <Typography variant="h5" color="#fff">
             Discover endless possibilities with our premium selection of
             products. Shop now and experience unparalleled quality, style, and
             convenience. From fashion and beauty essentials to home decor and
@@ -42,30 +47,46 @@ const Footer = () => {
         </Box>
 
         <Box>
-          <Typography variant="h4" fontWeight="bold" mb="30px">
+          <Typography variant="h4" fontWeight="bold" mb="30px" color="#fff">
             About Us
           </Typography>
-          <Typography variant="h5" mb="30px">Careers</Typography>
-          <Typography variant="h5" mb="30px">Our Stores</Typography>
-          <Typography variant="h5" mb="30px">Terms & Conditions</Typography>
-          <Typography variant="h5" mb="30px">Privacy Policy</Typography>
+          <Typography variant="h5" mb="30px" color="#fff">
+            Careers
+          </Typography>
+          <Typography variant="h5" mb="30px" color="#fff"> 
+            Our Stores
+          </Typography>
+          <Typography variant="h5" mb="30px" color="#fff">
+            Terms & Conditions
+          </Typography>
+          <Typography variant="h5" mb="30px" color="#fff">
+            Privacy Policy
+          </Typography>
         </Box>
 
         <Box>
-          <Typography variant="h4" fontWeight="bold" mb="30px">
+          <Typography variant="h4" fontWeight="bold" mb="30px" color="#fff">
             Customer Care
           </Typography>
-          <Typography variant="h5" mb="30px">Help Center</Typography>
-          <Typography variant="h5" mb="30px">Track Your Order</Typography>
-          <Typography variant="h5" mb="30px">Corporate & Bulk Purchasing</Typography>
-          <Typography variant="h5" mb="30px">Returns & Refunds</Typography>
+          <Typography variant="h5" mb="30px" color="#fff">
+            Help Center
+          </Typography>
+          <Typography variant="h5" mb="30px" color="#fff"> 
+            Track Your Order
+          </Typography>
+          <Typography variant="h5" mb="30px" color="#fff">
+            Corporate & Bulk Purchasing
+          </Typography>
+          <Typography variant="h5" mb="30px" color="#fff">
+            Returns & Refunds
+          </Typography>
         </Box>
 
         <Box width="clamp(20%, 25%, 30%)">
-          <Typography variant="h4" fontWeight="bold" mb="30px">
+          <Typography variant="h4" fontWeight="bold" mb="30px" color="#fff">
             Contact Us
           </Typography>
-          <Typography variant="h5" mb="30px">
+          <Typography variant="h5" mb="30px" color="#fff">
             123 Maple Street, Toronto, Ontario, M1A 1A1
           </Typography>
         </Box>

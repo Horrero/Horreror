@@ -135,7 +135,7 @@ const ItemDetails = () => {
 
       {/* RELATED ITEMS */}
       <Box mt="50px" width="100%">
-        <Typography variant="h3" fontWeight="bold">
+        <Typography variant="h3">
           RELATED PRODUCTS
         </Typography>
         <Box

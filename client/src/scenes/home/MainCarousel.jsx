@@ -45,11 +45,11 @@ const MainCarousel = () => {
           NQKAKUV QUOTE
         </Typography>
         <Button
-        m="30"
-        sx={{ backgroundColor: shades.primary[300], color: "white" }}
-        onClick={() => {
-          document.location.href = "#shopping-list";
-        }}
+          m="30"
+          sx={{ backgroundColor: "#ad1c11", color: "white" }}
+          onClick={() => {
+            document.location.href = "#shopping-list";
+          }}
         >
           Order Now
         </Button>

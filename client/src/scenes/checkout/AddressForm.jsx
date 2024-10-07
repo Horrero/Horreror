@@ -9,9 +9,8 @@ const AddressForm = ({
   handleBlur,
   handleChange,
 }) => {
-  const isNonMobile = useMediaQuery("(min-width:600px");
+  const isNonMobile = useMediaQuery("(min-width:600px)");
 
-  // These functions allow for better code readability
   const formattedName = (field) => `${type}.${field}`;
 
   const formattedError = (field) =>
@@ -42,7 +41,19 @@ const AddressForm = ({
         name={formattedName("firstName")}
         error={formattedError("firstName")}
         helperText={formattedHelper("firstName")}
-        sx={{ gridColumn: "span 2" }}
+        sx={{
+          gridColumn: "span 2",
+          "& .MuiInputBase-input": {
+            backgroundColor: "white",
+            color: "black",
+          },
+          "& .MuiFormLabel-root": {
+            color: "#41494F",
+          },
+          "& .Mui-error": {
+            color: "white",
+          },
+        }}
       />
       <TextField
         fullWidth
@@ -54,7 +65,19 @@ const AddressForm = ({
         name={formattedName("lastName")}
         error={formattedError("lastName")}
         helperText={formattedHelper("lastName")}
-        sx={{ gridColumn: "span 2" }}
+        sx={{
+          gridColumn: "span 2",
+          "& .MuiInputBase-input": {
+            backgroundColor: "white",
+            color: "black",
+          },
+          "& .MuiFormLabel-root": {
+            color: "#41494F",
+          },
+          "& .Mui-error": {
+            color: "white",
+          },
+        }}
       />
       <TextField
         fullWidth
@@ -66,7 +89,19 @@ const AddressForm = ({
         name={formattedName("country")}
         error={formattedError("country")}
         helperText={formattedHelper("country")}
-        sx={{ gridColumn: "span 4" }}
+        sx={{
+          gridColumn: "span 4",
+          "& .MuiInputBase-input": {
+            backgroundColor: "white",
+            color: "black",
+          },
+          "& .MuiFormLabel-root": {
+            color: "#41494F",
+          },
+          "& .Mui-error": {
+            color: "white",
+          },
+        }}
       />
       <TextField
         fullWidth
@@ -78,7 +113,19 @@ const AddressForm = ({
         name={formattedName("street1")}
         error={formattedError("street1")}
         helperText={formattedHelper("street1")}
-        sx={{ gridColumn: "span 2" }}
+        sx={{
+          gridColumn: "span 2",
+          "& .MuiInputBase-input": {
+            backgroundColor: "white",
+            color: "black",
+          },
+          "& .MuiFormLabel-root": {
+            color: "#41494F",
+          },
+          "& .Mui-error": {
+            color: "white",
+          },
+        }}
       />
       <TextField
         fullWidth
@@ -90,7 +137,19 @@ const AddressForm = ({
         name={formattedName("street2")}
         error={formattedError("street2")}
         helperText={formattedHelper("street2")}
-        sx={{ gridColumn: "span 2" }}
+        sx={{
+          gridColumn: "span 2",
+          "& .MuiInputBase-input": {
+            backgroundColor: "white",
+            color: "black",
+          },
+          "& .MuiFormLabel-root": {
+            color: "#41494F",
+          },
+          "& .Mui-error": {
+            color: "white",
+          },
+        }}
       />
       <TextField
         fullWidth
@@ -102,7 +161,19 @@ const AddressForm = ({
         name={formattedName("city")}
         error={formattedError("city")}
         helperText={formattedHelper("city")}
-        sx={{ gridColumn: "span 2" }}
+        sx={{
+          gridColumn: "span 2",
+          "& .MuiInputBase-input": {
+            backgroundColor: "white",
+            color: "black",
+          },
+          "& .MuiFormLabel-root": {
+            color: "#41494F",
+          },
+          "& .Mui-error": {
+            color: "white",
+          },
+        }}
       />
       <TextField
         fullWidth
@@ -114,7 +185,19 @@ const AddressForm = ({
         name={formattedName("state")}
         error={formattedError("state")}
         helperText={formattedHelper("state")}
-        sx={{ gridColumn: "1fr" }}
+        sx={{
+          gridColumn: "1fr",
+          "& .MuiInputBase-input": {
+            backgroundColor: "white",
+            color: "black",
+          },
+          "& .MuiFormLabel-root": {
+            color: "#41494F",
+          },
+          "& .Mui-error": {
+            color: "white",
+          },
+        }}
       />
       <TextField
         fullWidth
@@ -126,7 +209,19 @@ const AddressForm = ({
         name={formattedName("zipCode")}
         error={formattedError("zipCode")}
         helperText={formattedHelper("zipCode")}
-        sx={{ gridColumn: "1fr" }}
+        sx={{
+          gridColumn: "1fr",
+          "& .MuiInputBase-input": {
+            backgroundColor: "white",
+            color: "black",
+          },
+          "& .MuiFormLabel-root": {
+            color: "#41494F",
+          },
+          "& .Mui-error": {
+            color: "white",
+          },
+        }}
       />
     </Box>
   );

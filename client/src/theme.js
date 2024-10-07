@@ -6,11 +6,11 @@ export const shades = {
     200: "#999999",
     300: "#666666",
     400: "#333333",
-    500: "#000000",
-    600: "#000000",
-    700: "#000000",
-    800: "#000000",
-    900: "#000000",
+    500: "#ffffff",
+    600: "#ffffff",
+    700: "#ffffff",
+    800: "#ffffff",
+    900: "#ffffff",
   },
   secondary: {
     100: "#f7ccd2",
@@ -38,6 +38,9 @@ export const shades = {
 
 export const theme = createTheme({
   palette: {
+    background: {
+      default: '#000',
+    },
     primary: {
       main: shades.primary[500],
     },
@@ -48,6 +51,23 @@ export const theme = createTheme({
       dark: shades.neutral[700],
       main: shades.neutral[500],
       light: shades.neutral[100],
+    },
+  },
+  components: {
+    MuiAppBar: {
+      styleOverrides: {
+        root: {
+          backgroundColor: '#000',
+          color: '#fff',
+        },
+      },
+    },
+    MuiToolbar: {
+      styleOverrides: {
+        root: {
+          backgroundColor: '#fff',
+        },
+      },
     },
   },
   typography: {
