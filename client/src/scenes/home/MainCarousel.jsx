@@ -1,12 +1,12 @@
 import { Box, Button, Typography } from "@mui/material";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 // import { shades } from "../../theme";
-// import { useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 import heroTextureImport from "../../assets/main.png";
 
 const MainCarousel = () => {
-  // const { t } = useTranslation();
+  const { t } = useTranslation();
   // const isNonMobile = useMediaQuery("(min-width:600px");
 
   return (
@@ -42,7 +42,7 @@ const MainCarousel = () => {
         <Typography
           fontWeight="bold"
         >
-          NQKAKUV QUOTE
+          {t('quote')}
         </Typography>
         <Button
           m="30"
@@ -51,7 +51,7 @@ const MainCarousel = () => {
             document.location.href = "#shopping-list";
           }}
         >
-          Order Now
+          {t('orderNow')}
         </Button>
       </Box>
     </Box>

@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useTransition } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Box, Typography, Tab, Tabs, useMediaQuery } from "@mui/material";
 import Item from "../../components/Item";
 import { setItems } from "../../state";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
 
 const URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:1337";
 
@@ -12,6 +13,7 @@ const ShoppingList = () => {
   const [value, setValue] = useState("all");
   const items = useSelector((state) => state.cart.items);
   const isNonMobile = useMediaQuery("(min-width:600px)");
+  const { t } = useTranslation();
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -43,7 +45,7 @@ const ShoppingList = () => {
   return (
     <Box id="shopping-list" width="80%" margin="80px auto">
       <Typography variant="h3" textAlign="center">
-        Our Feature <b>Products</b>
+        {t('ourFeatureProducts')}
       </Typography>
       <Tabs
         textColor="primary"
@@ -59,10 +61,10 @@ const ShoppingList = () => {
           },
         }}
       >
-        <Tab label="ALL" value="all" style={{color: "white"}} />
-        <Tab label="NEW ARRIVALS" value="newArrivals" style={{color: "white"}} />
-        <Tab label="BEST SELLERS" value="bestSellers" style={{color: "white"}} />
-        <Tab label="TOP RATED" value="topRated" style={{color: "white"}} />
+        <Tab label={t('all')} value="all" style={{color: "white"}} />
+        <Tab label={t('newArrivals')} value="newArrivals" style={{color: "white"}} />
+        <Tab label={t('bestSellers')} value="bestSellers" style={{color: "white"}} />
+        <Tab label={t('topRated')} value="topRated" style={{color: "white"}} />
       </Tabs>
       <Box
         margin="0 auto"

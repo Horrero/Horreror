@@ -1,6 +1,9 @@
 import { Box, Typography, TextField, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 const Payment = ({ values, touched, errors, handleBlur, handleChange, setFieldValue }) => {
+  const { t } = useTranslation();
+
   const handlePaymentChange = (event) => {
     const selectedPayment = event.target.value;
     setFieldValue("cashOnDelivery", selectedPayment === "cash");
@@ -45,12 +48,9 @@ const Payment = ({ values, touched, errors, handleBlur, handleChange, setFieldVa
 
       {/* PAYMENT METHOD */}
       <Box mt="20px">
-        <Typography sx={{ mb: "15px", color: "#FFFFFF" }} fontSize="18px">
-          <span style={{ color: "#FFFFFF" }}>Payment Method</span>
-        </Typography>
         <FormControl component="fieldset" sx={{ color: "#FFFFFF" }}>
           <FormLabel component="legend" sx={{ color: "#FFFFFF" }}>
-            <span style={{ color: "#FFFFFF" }}>Select Payment Method</span>
+            <span style={{ color: "#FFFFFF" }}>{t('selectPaymentMethod')}</span>
           </FormLabel>
           <RadioGroup
             aria-label="payment method"
@@ -61,12 +61,12 @@ const Payment = ({ values, touched, errors, handleBlur, handleChange, setFieldVa
             <FormControlLabel
               value="card"
               control={<Radio sx={{ color: "#FFFFFF" }} />}
-              label={<span style={{ color: "#FFFFFF" }}>Card (Visa, MasterCard, Stripe)</span>}
+              label={<span style={{ color: "#FFFFFF" }}>{t('card')}</span>}
             />
             <FormControlLabel
               value="cash"
               control={<Radio sx={{ color: "#FFFFFF" }} />}
-              label={<span style={{ color: "#FFFFFF" }}>Cash on Delivery</span>}
+              label={<span style={{ color: "#FFFFFF" }}>{t('cashOnDelivery')}</span>}
             />
           </RadioGroup>
         </FormControl>

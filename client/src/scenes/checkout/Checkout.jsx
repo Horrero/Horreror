@@ -8,6 +8,7 @@ import Shipping from "./Shipping";
 import Payment from "./Payment";
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
 
 const URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:1337";
 
@@ -98,6 +99,7 @@ const Checkout = () => {
   const cart = useSelector((state) => state.cart.cart);
   const isFirstStep = activeStep === 0;
   const isSecondStep = activeStep === 1;
+  const { t } = useTranslation();
 
   const handleFormSubmit = async (values, actions) => {
     setActiveStep(activeStep + 1);
@@ -228,7 +230,7 @@ const Checkout = () => {
                     }}
                     onClick={() => setActiveStep(activeStep - 1)}
                   >
-                    Back
+                    {t('back')}
                   </Button>
                 )}
                 <Button
@@ -247,7 +249,7 @@ const Checkout = () => {
                     }
                   }}
                 >
-                  {!isSecondStep ? "Next" : "Place Order"}
+                  {!isSecondStep ? t('next') : t('placeOrder')}
                 </Button>
               </Box>
             </form>

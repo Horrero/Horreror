@@ -12,6 +12,7 @@ import {
   setIsCartOpen,
 } from "../../state";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 // Resuing CSS using Styled Components
 const FlexBox = styled(Box)`
@@ -25,6 +26,7 @@ const CartMenu = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.cart);
   const isCartOpen = useSelector((state) => state.cart.isCartOpen);
+  const { t } = useTranslation();
 
   const totalPrice = cart.reduce((total, item) => {
     return total + item.count * item.attributes?.price;
@@ -59,7 +61,7 @@ const CartMenu = () => {
         <Box padding="30px" overflow="auto" height="100%">
           {/* HEADER */}
           <FlexBox mb="15px">
-            <Typography variant="h3">SHOPPING BAG ({cart.length})</Typography>
+            <Typography variant="h3">{t('shoppingBag')} ({cart.length})</Typography>
             <IconButton style={{color: "white"}} onClick={() => dispatch(setIsCartOpen({}))}>
               <CloseIcon />
             </IconButton>
@@ -135,7 +137,7 @@ const CartMenu = () => {
           {/* ACTIONS */}
           <Box m="20px 0">
             <FlexBox m="20px 0">
-              <Typography fontWeight="bold">SUBTOTAL</Typography>
+              <Typography fontWeight="bold">{t('subtotal')}</Typography>
               <Typography fontWeight="bold">${totalPrice}</Typography>
             </FlexBox>
             <Button
@@ -152,7 +154,7 @@ const CartMenu = () => {
                 dispatch(setIsCartOpen({}));
               }}
             >
-              CHECKOUT
+              {t('checkout')}
             </Button>
           </Box>
         </Box>

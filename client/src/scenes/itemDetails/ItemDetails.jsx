@@ -10,6 +10,7 @@ import { addToCart } from "../../state";
 import { useParams } from "react-router-dom";
 import Item from "../../components/Item";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
 
 const URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:1337";
 
@@ -20,6 +21,7 @@ const ItemDetails = () => {
   const [count, setCount] = useState(1);
   const [item, setItem] = useState(null);
   const [items, setItems] = useState([]);
+  const { t } = useTranslation();
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -115,7 +117,7 @@ const ItemDetails = () => {
               {/* <FavoriteBorderOutlinedIcon /> */}
               {/* <Typography sx={{ ml: "5px" }}>ADD TO WISHLIST</Typography> */}
             </Box>
-            <Typography>CATEGORIES: {item?.attributes?.category
+            <Typography>{t('category')}: {item?.attributes?.category
               .replace(/([A-Z])/g, " $1")
               .replace(/^./, (str) => str.toUpperCase())}
             </Typography>
@@ -126,7 +128,7 @@ const ItemDetails = () => {
       {/* INFORMATION */}
       <Box m="20px 0">
         <Tabs value={value} onChange={handleChange}>
-          <Tab label="DESCRIPTION" value="description" />
+          <Tab label={t('description')} value="description" />
           {/* <Tab label="REVIEWS" value="reviews" /> */}
         </Tabs>
       </Box>
@@ -140,7 +142,7 @@ const ItemDetails = () => {
       {/* RELATED ITEMS */}
       <Box mt="50px" width="100%">
         <Typography variant="h3">
-          RELATED PRODUCTS
+          {t('releatedProducts')}
         </Typography>
         <Box
           mt="20px"
