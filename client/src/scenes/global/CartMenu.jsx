@@ -148,6 +148,9 @@ const CartMenu = () => {
                 minWidth: "100%",
                 padding: "20px 40px",
                 m: "20px 0",
+                "&:hover": {
+                  backgroundColor: "rgba(164, 23, 21, 0.6)",
+                },
               }}
               onClick={() => {
                 navigate("/checkout");

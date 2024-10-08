@@ -25,7 +25,6 @@ const initialValues = {
     street1: "",
     street2: "",
     city: "",
-    state: "",
     zipCode: "",
   },
   shippingAddress: {
@@ -36,7 +35,6 @@ const initialValues = {
     street1: "",
     street2: "",
     city: "",
-    state: "",
     zipCode: "",
   },
   email: "",
@@ -52,7 +50,6 @@ const checkoutSchema = [
       street1: yup.string().required("required"),
       street2: yup.string(),
       city: yup.string().required("required"),
-      state: yup.string().required("required"),
       zipCode: yup.string().required("required"),
     }),
     shippingAddress: yup.object().shape({
@@ -75,10 +72,6 @@ const checkoutSchema = [
       }),
       street2: yup.string(),
       city: yup.string().when("isSameAddress", {
-        is: false,
-        then: (yup) => yup.required("required"),
-      }),
-      state: yup.string().when("isSameAddress", {
         is: false,
         then: (yup) => yup.required("required"),
       }),

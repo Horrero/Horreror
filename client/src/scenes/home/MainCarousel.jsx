@@ -54,7 +54,11 @@ const MainCarousel = () => {
             borderRadius: "1000px",
             paddingLeft: "15px",
             paddingRight: "15px",
-            marginTop: "10px"
+            marginTop: "10px",
+            fontFamily: "Rubik Wet Paint",
+            "&:hover": {
+              backgroundColor: "rgba(173, 28, 17, 0.6)",
+            },
           }}
           onClick={() => {
             document.location.href = "#shopping-list";

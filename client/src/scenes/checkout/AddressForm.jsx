@@ -1,5 +1,6 @@
 import { Box, useMediaQuery, TextField } from "@mui/material";
 import { getIn } from "formik";
+import { useTranslation } from "react-i18next";
 
 const AddressForm = ({
   type,
@@ -10,6 +11,7 @@ const AddressForm = ({
   handleChange,
 }) => {
   const isNonMobile = useMediaQuery("(min-width:600px)");
+  const { t } = useTranslation();
 
   const formattedName = (field) => `${type}.${field}`;
 
@@ -34,7 +36,7 @@ const AddressForm = ({
       <TextField
         fullWidth
         type="text"
-        label="First Name"
+        label={t('firstName')}
         onBlur={handleBlur}
         onChange={handleChange}
         value={values.firstName}
@@ -58,7 +60,7 @@ const AddressForm = ({
       <TextField
         fullWidth
         type="text"
-        label="Last Name"
+        label={t('lastName')}
         onBlur={handleBlur}
         onChange={handleChange}
         value={values.lastName}
@@ -82,7 +84,7 @@ const AddressForm = ({
       <TextField
         fullWidth
         type="text"
-        label="Country"
+        label={t('country')}
         onBlur={handleBlur}
         onChange={handleChange}
         value={values.country}
@@ -106,7 +108,7 @@ const AddressForm = ({
       <TextField
         fullWidth
         type="text"
-        label="Street Address"
+        label={t('streetAddress')}
         onBlur={handleBlur}
         onChange={handleChange}
         value={values.street1}
@@ -130,7 +132,7 @@ const AddressForm = ({
       <TextField
         fullWidth
         type="text"
-        label="Street Address 2 (optional)"
+        label={t('streetAddress2')}
         onBlur={handleBlur}
         onChange={handleChange}
         value={values.street2}
@@ -154,7 +156,7 @@ const AddressForm = ({
       <TextField
         fullWidth
         type="text"
-        label="City"
+        label={t('city')}
         onBlur={handleBlur}
         onChange={handleChange}
         value={values.city}
@@ -178,31 +180,7 @@ const AddressForm = ({
       <TextField
         fullWidth
         type="text"
-        label="State"
-        onBlur={handleBlur}
-        onChange={handleChange}
-        value={values.state}
-        name={formattedName("state")}
-        error={formattedError("state")}
-        helperText={formattedHelper("state")}
-        sx={{
-          gridColumn: "1fr",
-          "& .MuiInputBase-input": {
-            backgroundColor: "white",
-            color: "black",
-          },
-          "& .MuiFormLabel-root": {
-            color: "#41494F",
-          },
-          "& .Mui-error": {
-            color: "white",
-          },
-        }}
-      />
-      <TextField
-        fullWidth
-        type="text"
-        label="Zip Code"
+        label={t('zipCode')}
         onBlur={handleBlur}
         onChange={handleChange}
         value={values.zipCode}
@@ -210,7 +188,7 @@ const AddressForm = ({
         error={formattedError("zipCode")}
         helperText={formattedHelper("zipCode")}
         sx={{
-          gridColumn: "1fr",
+          gridColumn: "span 2",
           "& .MuiInputBase-input": {
             backgroundColor: "white",
             color: "black",

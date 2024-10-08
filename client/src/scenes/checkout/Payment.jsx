@@ -14,12 +14,12 @@ const Payment = ({ values, touched, errors, handleBlur, handleChange, setFieldVa
       {/* CONTACT INFO */}
       <Box>
         <Typography sx={{ mb: "15px", color: "#FFFFFF" }} fontSize="18px">
-          <span style={{ color: "#FFFFFF" }}>Contact Info</span>
+          <span style={{ color: "#FFFFFF" }}>{t('contactInfo')}</span>
         </Typography>
         <TextField
           fullWidth
           type="text"
-          label={<span style={{ color: "#FFFFFF" }}>Email</span>}
+          label={<span style={{ color: "#FFFFFF" }}>{t('email')}</span>}
           onBlur={handleBlur}
           onChange={handleChange}
           value={values.email}
@@ -33,7 +33,7 @@ const Payment = ({ values, touched, errors, handleBlur, handleChange, setFieldVa
         <TextField
           fullWidth
           type="text"
-          label={<span style={{ color: "#FFFFFF" }}>Phone Number</span>}
+          label={<span style={{ color: "#FFFFFF" }}>{t('phoneNumber')}</span>}
           onBlur={handleBlur}
           onChange={handleChange}
           value={values.phoneNumber}
