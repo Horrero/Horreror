@@ -39,14 +39,23 @@ const MainCarousel = () => {
         <Typography variant="h1" fontSize={"50px"} color="darkRed">
           Horreror
         </Typography>
+
         <Typography
           fontWeight="bold"
         >
           {t('quote')}
         </Typography>
+
         <Button
           m="30"
-          sx={{ backgroundColor: "#ad1c11", color: "white" }}
+          sx={{
+            backgroundColor: "#ad1c11",
+            color: "white",
+            borderRadius: "1000px",
+            paddingLeft: "15px",
+            paddingRight: "15px",
+            marginTop: "10px"
+          }}
           onClick={() => {
             document.location.href = "#shopping-list";
           }}
