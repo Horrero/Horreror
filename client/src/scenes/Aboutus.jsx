@@ -10,13 +10,14 @@ const AboutUs = () => {
 
   return (
     <Box key={`image`}>
-      <div style={{ width: "100%", height: "700px" }}>
+      <div style={{ width: "100%", height: "300px" }}>
         <img
           src={heroImage}
           alt=""
           style={{
             width: "100%",
             height: "100%",
+            maxHeight: "300px",
             objectFit: "cover",
             backgroundAttachment: "fixed",
             zIndex: "-1"
