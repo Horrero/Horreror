@@ -46,7 +46,7 @@ const Navbar = () => {
           sx={{ "&:hover": { cursor: "pointer" } }}
           color="#fff" // set text color to white
         >
-          ECOMMER
+          HORREROR
         </Box>
         <Box
           display="flex"
