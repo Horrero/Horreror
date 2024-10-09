@@ -38,7 +38,9 @@ const resources = {
       city: "City",
       zipCode: "Zip Code",
       email: "Email",
-      phoneNumber: "Phone Number"
+      phoneNumber: "Phone Number",
+      ourStory: "Our Story",
+      ourStoryLong: "We are a creative team of young people who want to change the world. Be a part of our journey. We appreciate every order and everyone of you is part of the family."
     },
   },
   bg: {
@@ -77,7 +79,9 @@ const resources = {
       city: "Град",
       zipCode: "Пощенски код",
       email: "Имейл",
-      phoneNumber: "Телефоннен Номер"
+      phoneNumber: "Телефоннен Номер",
+      ourStory: "Нашата История",
+      ourStoryLong: "Ние сме творчески екип от млади хора, които искат да променят света. Бъдете част от нашето пътуване. Оценяваме всяка поръчка и всеки от вас е част от семейството."
     },
   },
 };

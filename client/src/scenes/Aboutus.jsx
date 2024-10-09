@@ -3,8 +3,11 @@ import { Box, Typography } from '@mui/material';
 
 import heroImage from "../assets/image 6.png";
 import image from "../assets/image 7.png";
+import { useTranslation } from 'react-i18next';
 
 const AboutUs = () => {
+  const { t } = useTranslation();
+
   return (
     <Box key={`image`}>
       <div style={{ width: "100%", height: "700px" }}>
@@ -34,9 +37,9 @@ const AboutUs = () => {
         />
 
         <div style={{ textAlign: 'center', maxWidth: '600px', paddingLeft: "50px", paddingRight: "50px", marginTop: "50px" }}>
-          <Typography variant='h1' style={{ color: '#FF0000', marginBottom: '10px' }}>OUR STORY</Typography>
+          <Typography variant='h1' style={{ color: '#FF0000', marginBottom: '10px' }}>{t('ourStory')}</Typography>
           <Typography style={{ color: '#FFFFFF', lineHeight: '1.5' }}>
-            We are a creative team of young people who want to change the world. Be a part of our journey. We appreciate every order and everyone of you is part of the family.
+            {t('ourStoryLong')}
           </Typography>
         </div>
       </div>
