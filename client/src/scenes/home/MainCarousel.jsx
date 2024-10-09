@@ -42,10 +42,10 @@ const MainCarousel = () => {
           src={line1}
           alt=""
           style={{
-            position: "relative",
+            position: "absolute",
             width: "100%",
             minWidth: "1100px",
-            bottom: "400px",
+            bottom: "240px",
             left: "0",
             zIndex: "0"
           }}
