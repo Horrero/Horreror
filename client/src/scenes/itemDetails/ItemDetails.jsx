@@ -21,7 +21,7 @@ const ItemDetails = () => {
   const [count, setCount] = useState(1);
   const [item, setItem] = useState(null);
   const [items, setItems] = useState([]);
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -71,10 +71,10 @@ const ItemDetails = () => {
           </Box>
 
           <Box m="65px 0 25px 0">
-            <Typography variant="h3">{item?.attributes?.name}</Typography>
+            <Typography variant="h3">{i18n.language === "bg" ? item?.attributes?.nameBg : item?.attributes?.name}</Typography>
             <Typography>${item?.attributes?.price}</Typography>
             <Typography sx={{ mt: "20px" }}>
-              {item?.attributes?.shortDescription}
+              {i18n.language === "bg" ? item?.attributes?.shortDescriptionBg : item?.attributes?.shortDescription}
             </Typography>
           </Box>
 
@@ -117,9 +117,9 @@ const ItemDetails = () => {
               {/* <FavoriteBorderOutlinedIcon /> */}
               {/* <Typography sx={{ ml: "5px" }}>ADD TO WISHLIST</Typography> */}
             </Box>
-            <Typography>{t('category')}: {item?.attributes?.category
-              .replace(/([A-Z])/g, " $1")
-              .replace(/^./, (str) => str.toUpperCase())}
+            <Typography>{t('category')}: {i18n.language === "bg" ? item?.attributes?.category === "newArrivals" ? "Ново" : item?.attributes?.category === "bestSellers" ? "Бестселъри" : "Най-Високо Оценени" : item?.attributes?.category
+            .replace(/([A-Z])/g, " $1")
+            .replace(/^./, (str) => str.toUpperCase())}
             </Typography>
           </Box>
         </Box>
@@ -134,7 +134,7 @@ const ItemDetails = () => {
       </Box>
       <Box display="flex" flexWrap="wrap" gap="15px">
         {value === "description" && (
-          <div>{item?.attributes?.longDescription}</div>
+          <div>{i18n.language === "bg" ? item?.attributes?.longDescriptionBg : item?.attributes?.longDescription}</div>
         )}
         {value === "reviews" && <div>reviews</div>}
       </Box>

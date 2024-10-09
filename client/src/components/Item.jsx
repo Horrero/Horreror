@@ -7,9 +7,7 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import { shades } from "../theme";
 import { addToCart } from "../state";
 import { useNavigate } from "react-router-dom";
-// import { Scale } from "@mui/icons-material";
-
-// const URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:1337";
+import { useTranslation } from 'react-i18next';  // Import useTranslation
 
 const Item = ({ item, width }) => {
   const navigate = useNavigate();
@@ -20,12 +18,15 @@ const Item = ({ item, width }) => {
     palette: { neutral },
   } = useTheme();
 
-  const { category, price, name, image } = item.attributes;
+  const { category, price, name, nameBg, image } = item.attributes;
   const imageUrl =
     image?.data?.attributes?.formats?.medium?.url ||
     image?.data?.attributes?.formats?.small?.url || 
     image?.data?.attributes?.formats?.thumbnail?.url ||
     "";
+
+  // Access the current language from react-i18next
+  const { i18n } = useTranslation();  // Reactively listen for language changes
 
   return (
     <Box width={width}>
@@ -92,11 +93,16 @@ const Item = ({ item, width }) => {
       </Box>
       <Box mt="3px">
         <Typography fontFamily={"Rubik Wet Paint"} fontSize={"16px"} variant="subtitle2" color={neutral.dark}>
-          {category
+          {i18n.language === "bg" ? category === "newArrivals" ? "Ново" : category === "bestSellers" ? "Бестселъри" : "Най-Високо Оценени" : category
             .replace(/([A-Z])/g, " $1")
             .replace(/^./, (str) => str.toUpperCase())}
         </Typography>
-        <Typography fontFamily={"Rubik Wet Paint"} fontSize={"24px"}>{name}</Typography>
+
+        {/* Display name or nameBg based on the current language */}
+        <Typography fontFamily={"Rubik Wet Paint"} fontSize={"24px"}>
+          {i18n.language === 'bg' ? nameBg : name}
+        </Typography>
+        
         <Typography fontWeight="bold" fontSize={"20px"}>${price}</Typography>
       </Box>
     </Box>

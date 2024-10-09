@@ -26,7 +26,7 @@ const CartMenu = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.cart);
   const isCartOpen = useSelector((state) => state.cart.isCartOpen);
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const totalPrice = cart.reduce((total, item) => {
     return total + item.count * item.attributes?.price;
@@ -84,7 +84,7 @@ const CartMenu = () => {
                     {/* ITEM NAME */}
                     <FlexBox mb="5px">
                       <Typography fontWeight="bold">
-                        {item.attributes.name}
+                        {i18n.language === "bg" ? item.attributes.nameBg : item.attributes.name}
                       </Typography>
                       <IconButton
                         onClick={() =>
@@ -94,7 +94,7 @@ const CartMenu = () => {
                         <CloseIcon />
                       </IconButton>
                     </FlexBox>
-                    <Typography>{item.attributes.shortDescription}</Typography>
+                    <Typography>{i18n.language === "bg" ? item.attributes.shortDescriptionBg : item.attributes.shortDescription}</Typography>
 
                     {/* AMOUNT */}
                     <FlexBox m="15px 0">
