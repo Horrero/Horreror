@@ -95,8 +95,8 @@ const Navbar = () => {
           {/* <IconButton sx={{ color: "black" }} style={{display: "none"}}>
             <MenuOutlined />
           </IconButton> */}
-          <button onClick={() => changeLanguage("en")}>EN</button>
-          <button onClick={() => changeLanguage("bg")}>BG</button>
+          <button style={{backgroundColor: "black", color: "white", border: "none", cursor: "pointer"}} onClick={() => changeLanguage("en")}>EN</button>
+          <button style={{backgroundColor: "black", color: "white", border: "none", cursor: "pointer"}} onClick={() => changeLanguage("bg")}>BG</button>
         </Box>
       </Box>
     </Box>
