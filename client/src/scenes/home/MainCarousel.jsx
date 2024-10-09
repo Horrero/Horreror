@@ -4,6 +4,9 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useTranslation } from "react-i18next";
 
 import heroTextureImport from "../../assets/main.png";
+import line1 from "../../assets/line 1.png";
+import line2 from "../../assets/line 2.png";
+import line3 from "../../assets/line 3.png";
 
 const MainCarousel = () => {
   const { t } = useTranslation();
@@ -11,16 +14,52 @@ const MainCarousel = () => {
 
   return (
     <Box key={`image`}>
-      <img
-        src={heroTextureImport}
-        alt=""
-        style={{
-          width: "100%",
-          height: "700px",
-          objectFit: "cover",
-          backgroundAttachment: "fixed",
-        }}
-      />
+      <div style={{width: "100%", height: "700px"}}>
+        <img
+          src={heroTextureImport}
+          alt=""
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            backgroundAttachment: "fixed",
+            zIndex: "-1"
+          }}
+        />
+
+        <img
+          src={line2}
+          alt=""
+          style={{
+            position: "relative",
+            width: "100%",
+            minWidth: "1100px",
+            bottom: "140px",
+            zIndex: "0"
+          }}
+        />
+        <img
+          src={line1}
+          alt=""
+          style={{
+            position: "relative",
+            width: "100%",
+            minWidth: "1100px",
+            bottom: "400px",
+            left: "0",
+            zIndex: "0"
+          }}
+        />
+        <img
+          src={line3}
+          alt=""
+          style={{
+            position: "absolute",
+            top: "-50px",
+            left: "-100px",
+          }}
+        />
+      </div>
       <Box
         color="white"
         padding="20px"
