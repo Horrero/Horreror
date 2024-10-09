@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 
 import heroTextureImport from "../../assets/main.png";
 import bigLines from "../../assets/bigLines.png";
-import bigLinesMini from "../../assets/bigLines-mini.png";
+// import bigLinesMini from "../../assets/bigLines-mini.png";
 import line3 from "../../assets/line 3.png";
 import { useEffect, useState, useRef } from "react";
 
