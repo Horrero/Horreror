@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
 
-import heroImage from "../../assets/image 6.png";
-import image from "../../assets/image 7.png";
+import heroImage from "../assets/image 6.png";
+import image from "../assets/image 7.png";
 
 const AboutUs = () => {
   return (
