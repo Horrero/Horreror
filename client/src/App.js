@@ -8,6 +8,9 @@ import Navbar from "./scenes/global/Navbar";
 import CartMenu from "./scenes/global/CartMenu";
 import Footer from "./scenes/global/Footer";
 import AboutUs from "./scenes/Aboutus";
+import Termsconditions from "./scenes/TermsConditions";
+import Privacypolicy from "./scenes/Privacypolicy";
+import Returns from "./scenes/Returns";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -31,6 +34,9 @@ const App = () => {
           <Route path="checkout" element={<Checkout />} />
           <Route path="checkout/success" element={<Confirmation />} />
           <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/terms-and-conditions" element={<Termsconditions />} />
+          <Route path="/privacy-policy" element={<Privacypolicy />} />
+          <Route path="/returns-and-refunds" element={<Returns />} />
         </Routes>
         <CartMenu />
         <Footer />
