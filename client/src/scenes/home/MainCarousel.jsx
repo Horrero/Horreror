@@ -26,7 +26,6 @@ const MainCarousel = () => {
       </div>
       <Box
         color="white"
-        padding="20px"
         borderRadius="1px"
         textAlign="center"
         // backgroundColor="rgba(0, 0, 0, 0.4)"
