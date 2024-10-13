@@ -1,30 +1,11 @@
+import { Box, Typography } from '@mui/material'
 import React from 'react'
 
 const Termsconditions = () => {
   return (
-    <div>
-      <p>Terms & Conditions</p>
-      <p>Terms & Conditions</p>
-      <p>Terms & Conditions</p>
-      <p>Terms & Conditions</p>
-      <p>Terms & Conditions</p>
-      <p>Terms & Conditions</p>
-      <p>Terms & Conditions</p>
-      <p>Terms & Conditions</p>
-      <p>Terms & Conditions</p>
-      <p>Terms & Conditions</p>
-      <p>Terms & Conditions</p>
-      <p>Terms & Conditions</p>
-      <p>Terms & Conditions</p>
-      <p>Terms & Conditions</p>
-      <p>Terms & Conditions</p>
-      <p>Terms & Conditions</p>
-      <p>Terms & Conditions</p>
-      <p>Terms & Conditions</p>
-      <p>Terms & Conditions</p>
-      <p>Terms & Conditions</p>
-      <p>Terms & Conditions</p>
-    </div>
+    <Box width="80%" margin="80px auto">
+      <Typography variant='h2' color="darkred">Terms & Conditions</Typography>
+    </Box>
   )
 }
 
