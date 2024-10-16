@@ -63,11 +63,11 @@ const MainCarousel = () => {
         bottom="150px"
         left="0"
         right="0"
-        maxWidth="280px"
+        maxWidth="400px"
         maxHeight="fit-content"
         margin="auto"
       >
-        <Typography variant="h1" fontSize={"50px"} color="darkRed">
+        <Typography className="header" variant="h1" fontSize={"100px"} color="darkRed">
           Horreror
         </Typography>
 

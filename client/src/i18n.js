@@ -4,7 +4,7 @@ import { initReactI18next } from "react-i18next";
 const resources = {
   en: {
     translation: {
-      quote: "NQKUV QUOTE",
+      quote: "Cover yourself in mystery and style! Don't be afraid of the dark!",
       ourFeatureProducts: "Our Feature Products",
       orderNow: "Order Now",
       all: "All",
@@ -45,7 +45,7 @@ const resources = {
   },
   bg: {
     translation: {
-      quote: "Някъв Цитат",
+      quote: "Облечи се в загадки и стил. Не се страхувай от тъмното!",
       ourFeatureProducts: "Нашите Продукти",
       orderNow: "КУПИ СЕГА",
       all: "Всички",

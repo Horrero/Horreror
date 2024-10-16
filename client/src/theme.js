@@ -74,7 +74,7 @@ export const theme = createTheme({
     fontFamily: ["Caveat", "cursive"].join(","),
     fontSize: 20,
     h1: {
-      fontFamily: ["Rubik Wet Paint", "sans-serif"].join(","),
+      fontFamily: ['Forresta Personal Use', "sans-serif"].join(","),
       fontSize: 48,
     },
     h2: {
