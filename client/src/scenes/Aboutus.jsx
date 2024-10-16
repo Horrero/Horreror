@@ -6,7 +6,7 @@ import image from "../assets/image 7.png";
 import { useTranslation } from 'react-i18next';
 
 const AboutUs = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
     <Box key={`image`}>
@@ -38,7 +38,7 @@ const AboutUs = () => {
         />
 
         <div style={{ textAlign: 'center', maxWidth: '600px', paddingLeft: "50px", paddingRight: "50px", marginTop: "50px" }}>
-          <Typography variant='h1' style={{ color: '#FF0000', marginBottom: '10px' }}>{t('ourStory')}</Typography>
+          <Typography variant='h1' style={{ fontFamily: (i18n.language === "bg" && "Rubik Wet Paint"), color: '#FF0000', marginBottom: '10px' }}>{t('ourStory')}</Typography>
           <Typography style={{ color: '#FFFFFF', lineHeight: '1.5' }}>
             {t('ourStoryLong')}
           </Typography>
