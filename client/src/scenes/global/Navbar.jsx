@@ -48,6 +48,7 @@ const Navbar = () => {
           color="#fff" // set text color to white
         >
           <img
+            alt=""
             src={logo}
           />
         </Box>
