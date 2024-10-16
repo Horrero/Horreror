@@ -9,6 +9,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { setIsCartOpen } from "../../state";
 import { useTranslation } from "react-i18next";
+import logo from "../../assets/Logo.png";
 
 const Navbar = () => {
   const { i18n } = useTranslation();
@@ -46,7 +47,9 @@ const Navbar = () => {
           sx={{ "&:hover": { cursor: "pointer" } }}
           color="#fff" // set text color to white
         >
-          HORREROR
+          <img
+            src={logo}
+          />
         </Box>
         <Box
           display="flex"
