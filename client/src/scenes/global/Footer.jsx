@@ -1,11 +1,13 @@
 // import { useTheme } from "@mui/material";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Link } from "@mui/material";
 // import { shades } from "../../theme";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
   // const {
   //   palette: { neutral },
   // } = useTheme();
+  const { t } = useTranslation();
 
   return (
     <Box
@@ -30,49 +32,37 @@ const Footer = () => {
             mb="30px"
             color="#fff" // set text color to white
           >
-            ECOMMER
+            HORREROR
           </Typography>
           <Typography variant="h5" color="#fff">
-            Discover endless possibilities with our premium selection of
-            products. Shop now and experience unparalleled quality, style, and
-            convenience.
+            {t("ourStoryLong")}
           </Typography>
         </Box>
 
         <Box>
-          <Typography variant="h4" mb="30px" color="#fff">
-            About Us
-          </Typography>
-          <Typography variant="h5" mb="30px" color="#fff">
-            Careers
-          </Typography>
-          <Typography variant="h5" mb="30px" color="#fff"> 
-            Our Stores
-          </Typography>
-          <Typography variant="h5" mb="30px" color="#fff">
-            Terms & Conditions
-          </Typography>
-          <Typography variant="h5" mb="30px" color="#fff">
-            Privacy Policy
-          </Typography>
+          <Link href="/about-us" color="inherit" underline="none">
+            <Typography variant="h4" mb="30px" color="#fff">
+              About Us
+            </Typography>
+          </Link>
+          <Link href="/terms-and-conditions" color="inherit" underline="none">
+            <Typography variant="h4" mb="30px" color="#fff">
+              Terms & Conditions
+            </Typography>
+          </Link>
+          <Link href="/privacy-policy" color="inherit" underline="none">
+            <Typography variant="h4" mb="30px" color="#fff">
+              Privacy Policy
+            </Typography>
+          </Link>
         </Box>
 
         <Box>
-          <Typography variant="h4" mb="30px" color="#fff">
-            Customer Care
-          </Typography>
-          <Typography variant="h5" mb="30px" color="#fff">
-            Help Center
-          </Typography>
-          <Typography variant="h5" mb="30px" color="#fff"> 
-            Track Your Order
-          </Typography>
-          <Typography variant="h5" mb="30px" color="#fff">
-            Corporate & Bulk Purchasing
-          </Typography>
-          <Typography variant="h5" mb="30px" color="#fff">
-            Returns & Refunds
-          </Typography>
+          <Link href="/privacy-policy" color="inherit" underline="none">
+            <Typography variant="h4" mb="30px" color="#fff">
+              Returns & Refunds
+            </Typography>
+          </Link>
         </Box>
 
         <Box width="clamp(20%, 25%, 30%)">

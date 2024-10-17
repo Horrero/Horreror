@@ -13,7 +13,7 @@ import { useTranslation } from "react-i18next";
 const URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:1337";
 
 const stripePromise = loadStripe(
-  "pk_test_51PtfRG06QBDFn9Ds6egUwsJv8itzbNlutm82tTYYMta67tfIR19zv5V9tpUXvefC0dZxHmwxewZ6izdps5BxSRw400NpbEdW76"
+  "pk_live_51PtfRG06QBDFn9DsUD4L4LOx4DxcOt0PbbGz0AjJytElVcvu4xtwp69RAaMRtHZiKFJBjCNR8kIsjUVfrszfn1pG003jYxAZM4"
 );
 
 const initialValues = {
