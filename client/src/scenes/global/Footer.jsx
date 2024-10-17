@@ -55,9 +55,6 @@ const Footer = () => {
               Privacy Policy
             </Typography>
           </Link>
-        </Box>
-
-        <Box>
           <Link href="/privacy-policy" color="inherit" underline="none">
             <Typography variant="h4" mb="30px" color="#fff">
               Returns & Refunds
@@ -73,6 +70,9 @@ const Footer = () => {
             123 Maple Street, Toronto, Ontario, M1A 1A1
           </Typography>
         </Box>
+
+        <Box></Box>
+
       </Box>
     </Box>
   );
