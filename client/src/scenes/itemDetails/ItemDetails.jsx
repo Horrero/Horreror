@@ -112,16 +112,17 @@ const ItemDetails = () => {
             </IconButton>
           </Box>
 
-          <Box>
+          {/* <FavoriteBorderOutlinedIcon /> */}
+          {/* <Typography sx={{ ml: "5px" }}>ADD TO WISHLIST</Typography> */}
+          {/* <Box>
             <Box m="20px 0 5px 0" display="flex">
-              {/* <FavoriteBorderOutlinedIcon /> */}
-              {/* <Typography sx={{ ml: "5px" }}>ADD TO WISHLIST</Typography> */}
             </Box>
             <Typography>{t('category')}: {i18n.language === "bg" ? item?.attributes?.category === "newArrivals" ? "Ново" : item?.attributes?.category === "bestSellers" ? "Бестселъри" : "Най-Високо Оценени" : item?.attributes?.category
             .replace(/([A-Z])/g, " $1")
             .replace(/^./, (str) => str.toUpperCase())}
             </Typography>
           </Box>
+          */}
         </Box>
       </Box>
 

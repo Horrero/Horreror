@@ -65,7 +65,7 @@ const Footer = () => {
           <Typography variant="h4" mb="15px" color="#fff">
             Contact Us
           </Typography>
-          <Typography variant="h5" mb="30px" color="#fff">
+          <Typography variant="h5" mb="8px" color="#fff">
             123 Maple Street, Toronto, Ontario, M1A 1A1
           </Typography>
         </Box>

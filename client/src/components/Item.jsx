@@ -92,11 +92,11 @@ const Item = ({ item, width }) => {
         </Box>
       </Box>
       <Box mt="3px">
-        <Typography fontFamily={"Rubik Wet Paint"} fontSize={"16px"} variant="subtitle2" color={neutral.dark}>
+        {/* <Typography fontFamily={"Rubik Wet Paint"} fontSize={"16px"} variant="subtitle2" color={neutral.dark}>
           {i18n.language === "bg" ? category === "newArrivals" ? "Ново" : category === "bestSellers" ? "Бестселъри" : "Най-Високо Оценени" : category
             .replace(/([A-Z])/g, " $1")
             .replace(/^./, (str) => str.toUpperCase())}
-        </Typography>
+        </Typography> */}
 
         {/* Display name or nameBg based on the current language */}
         <Typography fontFamily={"Rubik Wet Paint"} fontSize={"24px"}>
