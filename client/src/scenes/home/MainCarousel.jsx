@@ -59,13 +59,13 @@ const MainCarousel = () => {
         borderRadius="1px"
         textAlign="center"
         position="absolute"
-        top="0"
+        top="250px"
         bottom="150px"
         left="0"
         right="0"
         maxWidth="400px"
         maxHeight="fit-content"
-        margin="auto"
+        margin="0 auto"
       >
         <Typography className="header" variant="h1" fontSize={"100px"} color="darkRed">
           Horreror
