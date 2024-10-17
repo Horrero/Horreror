@@ -1,12 +1,10 @@
-// import { useTheme } from "@mui/material";
 import { Box, Typography, Link } from "@mui/material";
-// import { shades } from "../../theme";
 import { useTranslation } from "react-i18next";
 
+import instagram from "../../assets/instagram.png";
+import tikTok from "../../assets/tik-tok.png";
+
 const Footer = () => {
-  // const {
-  //   palette: { neutral },
-  // } = useTheme();
   const { t } = useTranslation();
 
   return (
@@ -24,14 +22,13 @@ const Footer = () => {
         flexWrap="wrap"
         rowGap="30px"
         columnGap="clamp(20px, 30px, 40px)"
+        sx={{
+          flexDirection: { xs: "column", sm: "row" }, // Stack on mobile, row on larger screens
+        }}
       >
-        <Box width="clamp(20%, 30%, 40%)">
-          <Typography
-            variant="h4"
-            // fontWeight="bold"
-            mb="30px"
-            color="#fff" // set text color to white
-          >
+        {/* HORREROR Info */}
+        <Box width={{ xs: "100%", sm: "clamp(20%, 30%, 40%)" }}>
+          <Typography fontFamily="Forresta Personal Use" variant="h2" mb="8px" color="#fff">
             HORREROR
           </Typography>
           <Typography variant="h5" color="#fff">
@@ -39,7 +36,8 @@ const Footer = () => {
           </Typography>
         </Box>
 
-        <Box>
+        {/* Links Section */}
+        <Box width={{ xs: "100%", sm: "auto" }}>
           <Link href="/about-us" color="inherit" underline="none">
             <Typography variant="h4" mb="30px" color="#fff">
               About Us
@@ -55,15 +53,16 @@ const Footer = () => {
               Privacy Policy
             </Typography>
           </Link>
-          <Link href="/privacy-policy" color="inherit" underline="none">
-            <Typography variant="h4" mb="30px" color="#fff">
+          <Link href="/returns-refunds" color="inherit" underline="none">
+            <Typography variant="h4" mb="15px" color="#fff">
               Returns & Refunds
             </Typography>
           </Link>
         </Box>
 
-        <Box width="clamp(20%, 25%, 30%)">
-          <Typography variant="h4" mb="30px" color="#fff">
+        {/* Contact Us */}
+        <Box width={{ xs: "100%", sm: "clamp(20%, 25%, 30%)" }}>
+          <Typography variant="h4" mb="15px" color="#fff">
             Contact Us
           </Typography>
           <Typography variant="h5" mb="30px" color="#fff">
@@ -71,8 +70,35 @@ const Footer = () => {
           </Typography>
         </Box>
 
-        <Box></Box>
-
+        {/* Social Media Links */}
+        <Box
+          width={{ xs: "100%", sm: "auto" }}
+          display="flex"
+          justifyContent={{ xs: "flex-start", sm: "center" }}
+          alignItems="center"
+          gap="20px"
+        >
+          <Link
+            href="https://www.tiktok.com/@horreror.clothing?_t=8qZRABvpbSj&_r=1"
+            underline="none"
+          >
+            <img
+              alt="TikTok"
+              src={tikTok}
+              style={{ width: "40px", height: "40px" }} // resized to 40px
+            />
+          </Link>
+          <Link
+            href="https://www.instagram.com/horreror.clothing?igsh=MTV4NWdtNzA1aHBtMQ%3D%3D"
+            underline="none"
+          >
+            <img
+              alt="Instagram"
+              src={instagram}
+              style={{ width: "40px", height: "40px" }} // resized to 40px
+            />
+          </Link>
+        </Box>
       </Box>
     </Box>
   );

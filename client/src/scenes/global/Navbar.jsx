@@ -44,12 +44,20 @@ const Navbar = () => {
       >
         <Box
           onClick={() => navigate("/")}
-          sx={{ "&:hover": { cursor: "pointer" } }}
-          color="#fff" // set text color to white
+          sx={{
+            "&:hover": { cursor: "pointer" },
+            height: "60px",
+            display: "flex",
+            alignItems: "center",  // vertically center content
+            padding: 0,            // reset padding
+            margin: 0              // reset margin
+          }}
+          color="#fff"
         >
           <img
             alt=""
             src={logo}
+            style={{ height: "60px", padding: 0, margin: 0 }}
           />
         </Box>
         <Box
