@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Box, IconButton, Typography, useTheme } from "@mui/material";
+import { Box, IconButton, Typography } from "@mui/material";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
@@ -14,11 +14,11 @@ const Item = ({ item, width }) => {
   const dispatch = useDispatch();
   const [count, setCount] = useState(1);
   const [isHovered, setIsHovered] = useState(false);
-  const {
-    palette: { neutral },
-  } = useTheme();
+  // const {
+  //   palette: { neutral },
+  // } = useTheme();
 
-  const { category, price, name, nameBg, image } = item.attributes;
+  const { price, name, nameBg, image } = item.attributes;
   const imageUrl =
     image?.data?.attributes?.formats?.medium?.url ||
     image?.data?.attributes?.formats?.small?.url || 
