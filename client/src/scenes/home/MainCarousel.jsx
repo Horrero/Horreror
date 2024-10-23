@@ -4,8 +4,8 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useTranslation } from "react-i18next";
 
 // Import your images
-import heroTextureImport from "../../assets/main.png";
-import secondImage from "../../assets/image 6.png"; // Add your second image here
+import heroTextureImport from "../../assets/header_1.jpg";
+import secondImage from "../../assets/header_2.png";
 
 const MainCarousel = () => {
   const { t } = useTranslation();
