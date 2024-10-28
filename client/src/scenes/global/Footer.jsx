@@ -28,7 +28,12 @@ const Footer = () => {
       >
         {/* HORREROR Info */}
         <Box width={{ xs: "100%", sm: "clamp(20%, 30%, 40%)" }}>
-          <Typography fontFamily="Forresta Personal Use" variant="h2" mb="8px" color="#fff">
+          <Typography
+            fontFamily="Forresta Personal Use"
+            variant="h2"
+            mb="8px"
+            color="#fff"
+          >
             HORREROR
           </Typography>
           <Typography variant="h5" color="#fff">
@@ -66,7 +71,10 @@ const Footer = () => {
             Contact Us
           </Typography>
           <Typography variant="h5" mb="8px" color="#fff">
-            123 Maple Street, Toronto, Ontario, M1A 1A1
+            Email: horreror.com@gmail.com
+          </Typography>
+          <Typography variant="h5" mb="8px" color="#fff">
+            Phone: 0876502885
           </Typography>
         </Box>
 
