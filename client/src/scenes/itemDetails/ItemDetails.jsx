@@ -11,6 +11,8 @@ import { useParams } from "react-router-dom";
 import Item from "../../components/Item";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 const URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:1337";
 
@@ -135,7 +137,9 @@ const ItemDetails = () => {
       </Box>
       <Box display="flex" flexWrap="wrap" gap="15px">
         {value === "description" && (
-          <div>{i18n.language === "bg" ? item?.attributes?.longDescriptionBg : item?.attributes?.longDescription}</div>
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+            {i18n.language === "bg" ? item?.attributes?.longDescriptionBg : item?.attributes?.longDescription}
+          </ReactMarkdown>
         )}
         {value === "reviews" && <div>reviews</div>}
       </Box>
