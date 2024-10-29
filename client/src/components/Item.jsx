@@ -116,7 +116,7 @@ const Item = ({ item, width }) => {
           {i18n.language === 'bg' ? nameBg : name}
         </Typography>
         {!soldOut && (
-          <Typography fontWeight="bold" fontSize={"20px"}>{price} {i18n.language == 'bg' ? "лв" : "bgn"}</Typography>
+          <Typography fontWeight="bold" fontSize={"20px"}>{price} {i18n.language === 'bg' ? "лв" : "bgn"}</Typography>
         )}
       </Box>
     </Box>
