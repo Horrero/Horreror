@@ -34,6 +34,10 @@ const ItemDetails = () => {
       URL+"/api/items/"+itemId+"?populate=image"
     );
     const itemJson = await item.data;
+    console.log(itemJson.data);
+    if(itemJson.data.attributes.soldOut) {
+      document.location.href = "/";
+    }
     setItem(itemJson.data);
   };
 
