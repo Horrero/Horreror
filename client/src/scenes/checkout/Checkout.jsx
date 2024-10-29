@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { Box, Button, Stepper, Step, StepLabel } from "@mui/material";
 import { Formik } from "formik";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as yup from "yup";
 import { shades } from "../../theme";
 import Shipping from "./Shipping";
@@ -13,7 +13,7 @@ import { useTranslation } from "react-i18next";
 const URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:1337";
 
 const stripePromise = loadStripe(
-  "pk_live_51PtfRG06QBDFn9DsUD4L4LOx4DxcOt0PbbGz0AjJytElVcvu4xtwp69RAaMRtHZiKFJBjCNR8kIsjUVfrszfn1pG003jYxAZM4"
+  "pk_test_51PtfRG06QBDFn9Ds6egUwsJv8itzbNlutm82tTYYMta67tfIR19zv5V9tpUXvefC0dZxHmwxewZ6izdps5BxSRw400NpbEdW76"
 );
 
 const initialValues = {
@@ -94,6 +94,12 @@ const Checkout = () => {
   const isSecondStep = activeStep === 1;
   const { t } = useTranslation();
 
+  useEffect(() => {
+    if (cart.length === 0) {
+      document.location.href = "/";
+    }
+  }, [cart]);
+
   const handleFormSubmit = async (values, actions) => {
     setActiveStep(activeStep + 1);
 
@@ -113,6 +119,10 @@ const Checkout = () => {
   };
 
   const makePayment = async (values) => {
+    if (cart.length === 0) {
+      return document.location.href = "/";
+    }
+
     let stripe = false;
     if(!values.cashOnDelivery) {
       stripe = await stripePromise;
