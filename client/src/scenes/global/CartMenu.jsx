@@ -44,7 +44,7 @@ const CartMenu = () => {
       top="0"
       overflow="auto"
       sx={{
-        opacity: isCartOpen ? 1 : 0,  // Control opacity for smooth fade in/out
+        opacity: isCartOpen ? 1 : 0, // Control opacity for smooth fade in/out
         transition: "opacity 0.3s ease, background-color 0.5s ease", // Smooth transitions
       }}
     >
@@ -61,8 +61,13 @@ const CartMenu = () => {
         <Box padding="30px" overflow="auto" height="100%">
           {/* HEADER */}
           <FlexBox mb="15px">
-            <Typography variant="h3">{t('shoppingBag')} ({cart.length})</Typography>
-            <IconButton style={{color: "white"}} onClick={() => dispatch(setIsCartOpen({}))}>
+            <Typography variant="h3">
+              {t("shoppingBag")} ({cart.length})
+            </Typography>
+            <IconButton
+              style={{ color: "white" }}
+              onClick={() => dispatch(setIsCartOpen({}))}
+            >
               <CloseIcon />
             </IconButton>
           </FlexBox>
@@ -77,14 +82,19 @@ const CartMenu = () => {
                       alt={item?.name}
                       width="123px"
                       height="164px"
-                      src={item?.attributes?.image?.data?.attributes?.formats?.medium?.url}
+                      src={
+                        item?.attributes?.image?.data?.attributes?.formats
+                          ?.medium?.url
+                      }
                     />
                   </Box>
                   <Box flex="1 1 60%">
                     {/* ITEM NAME */}
                     <FlexBox mb="5px">
                       <Typography fontWeight="bold">
-                        {i18n.language === "bg" ? item.attributes.nameBg : item.attributes.name}
+                        {i18n.language === "bg"
+                          ? item.attributes.nameBg
+                          : item.attributes.name}
                       </Typography>
                       <IconButton
                         onClick={() =>
@@ -94,7 +104,11 @@ const CartMenu = () => {
                         <CloseIcon />
                       </IconButton>
                     </FlexBox>
-                    <Typography>{i18n.language === "bg" ? item.attributes.shortDescriptionBg : item.attributes.shortDescription}</Typography>
+                    <Typography>
+                      {i18n.language === "bg"
+                        ? item.attributes.shortDescriptionBg
+                        : item.attributes.shortDescription}
+                    </Typography>
 
                     {/* AMOUNT */}
                     <FlexBox m="15px 0">
@@ -104,7 +118,7 @@ const CartMenu = () => {
                         border={`1.5px solid ${shades.neutral[500]}`}
                       >
                         <IconButton
-                          style={{color: "white"}}
+                          style={{ color: "white" }}
                           onClick={() =>
                             dispatch(decreaseCount({ id: item.id }))
                           }
@@ -113,7 +127,7 @@ const CartMenu = () => {
                         </IconButton>
                         <Typography>{item.count}</Typography>
                         <IconButton
-                          style={{color: "white"}}
+                          style={{ color: "white" }}
                           onClick={() =>
                             dispatch(increaseCount({ id: item.id }))
                           }
@@ -124,12 +138,13 @@ const CartMenu = () => {
 
                       {/* PRICE */}
                       <Typography fontWeight="bold">
-                        ${item.attributes.price}
+                        {item.attributes.price}
+                        {i18n.language === "bg" ? "лв" : "bgn"}
                       </Typography>
                     </FlexBox>
                   </Box>
                 </FlexBox>
-                <Divider style={{backgroundColor: "white"}} />
+                <Divider style={{ backgroundColor: "white" }} />
               </Box>
             ))}
           </Box>
@@ -137,12 +152,15 @@ const CartMenu = () => {
           {/* ACTIONS */}
           <Box m="20px 0">
             <FlexBox m="20px 0">
-              <Typography fontWeight="bold">{t('subtotal')}</Typography>
-              <Typography fontWeight="bold">${totalPrice}</Typography>
+              <Typography fontWeight="bold">{t("subtotal")}</Typography>
+              <Typography fontWeight="bold">
+                {totalPrice}
+                {i18n.language === "bg" ? "лв" : "bgn"}
+              </Typography>
             </FlexBox>
             <Button
               sx={{
-                backgroundColor: '#A41715',
+                backgroundColor: "#A41715",
                 color: "black",
                 borderRadius: 0,
                 minWidth: "100%",
@@ -157,7 +175,7 @@ const CartMenu = () => {
                 dispatch(setIsCartOpen({}));
               }}
             >
-              {t('checkout')}
+              {t("checkout")}
             </Button>
           </Box>
         </Box>

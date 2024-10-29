@@ -58,16 +58,19 @@ const ItemDetails = () => {
     <Box width="80%" m="80px auto">
       <Box display="flex" flexWrap="wrap" columnGap="40px">
         {/*IMAGES */}
-        {item?.attributes?.image?.data?.attributes?.formats?.medium?.url &&
-        <Box flex="1 1 40%" mb="40px">
-          <img
-            alt={item?.name}
-            width="100%"
-            height="100%"
-            src={item?.attributes?.image?.data?.attributes?.formats?.medium?.url}
-            style={{ objectFit: "contain" }}
+        {item?.attributes?.image?.data?.attributes?.formats?.medium?.url && (
+          <Box flex="1 1 40%" mb="40px">
+            <img
+              alt={item?.name}
+              width="100%"
+              height="100%"
+              src={
+                item?.attributes?.image?.data?.attributes?.formats?.medium?.url
+              }
+              style={{ objectFit: "contain" }}
             />
-        </Box>}
+          </Box>
+        )}
 
         {/* ACTIONS */}
         <Box flex="1 1 50%" mb="40px">
@@ -77,10 +80,19 @@ const ItemDetails = () => {
           </Box>
 
           <Box m="65px 0 25px 0">
-            <Typography variant="h3">{i18n.language === "bg" ? item?.attributes?.nameBg : item?.attributes?.name}</Typography>
-            <Typography>${item?.attributes?.price}</Typography>
+            <Typography variant="h3">
+              {i18n.language === "bg"
+                ? item?.attributes?.nameBg
+                : item?.attributes?.name}
+            </Typography>
+            <Typography>
+              {item?.attributes?.price}
+              {i18n.language === "bg" ? "лв" : "bgn"}
+            </Typography>
             <Typography sx={{ mt: "20px" }}>
-              {i18n.language === "bg" ? item?.attributes?.shortDescriptionBg : item?.attributes?.shortDescription}
+              {i18n.language === "bg"
+                ? item?.attributes?.shortDescriptionBg
+                : item?.attributes?.shortDescription}
             </Typography>
           </Box>
 
@@ -93,11 +105,17 @@ const ItemDetails = () => {
               mr="20px"
               p="2px 5px"
             >
-              <IconButton style={{color: "white"}} onClick={() => setCount(Math.max(count - 1, 0))}>
+              <IconButton
+                style={{ color: "white" }}
+                onClick={() => setCount(Math.max(count - 1, 0))}
+              >
                 <RemoveIcon />
               </IconButton>
               <Typography sx={{ p: "0 5px" }}>{count}</Typography>
-              <IconButton style={{color: "white"}} onClick={() => setCount(count + 1)}>
+              <IconButton
+                style={{ color: "white" }}
+                onClick={() => setCount(count + 1)}
+              >
                 <AddIcon />
               </IconButton>
             </Box>
@@ -107,14 +125,15 @@ const ItemDetails = () => {
               }}
               sx={{
                 backgroundColor: "darkRed", // Default background color
-                color: "white", 
+                color: "white",
                 transition: "all 0.3s ease",
                 "&:hover": {
                   backgroundColor: "rgba(139, 0, 0, 0.6)", // Dark red with less transparency on hover
                 },
               }}
             >
-              <ShoppingCartIcon style={{ transform: "scale(0.75, 0.75)" }} /> {/* Add an icon here */}
+              <ShoppingCartIcon style={{ transform: "scale(0.75, 0.75)" }} />{" "}
+              {/* Add an icon here */}
             </IconButton>
           </Box>
 
@@ -135,14 +154,16 @@ const ItemDetails = () => {
       {/* INFORMATION */}
       <Box m="20px 0">
         <Tabs value={value} onChange={handleChange}>
-          <Tab label={t('description')} value="description" />
+          <Tab label={t("description")} value="description" />
           {/* <Tab label="REVIEWS" value="reviews" /> */}
         </Tabs>
       </Box>
       <Box display="flex" flexWrap="wrap" gap="15px">
         {value === "description" && (
           <ReactMarkdown remarkPlugins={[remarkGfm]}>
-            {i18n.language === "bg" ? item?.attributes?.longDescriptionBg : item?.attributes?.longDescription}
+            {i18n.language === "bg"
+              ? item?.attributes?.longDescriptionBg
+              : item?.attributes?.longDescription}
           </ReactMarkdown>
         )}
         {value === "reviews" && <div>reviews</div>}
@@ -150,9 +171,7 @@ const ItemDetails = () => {
 
       {/* RELATED ITEMS */}
       <Box mt="50px" width="100%">
-        <Typography variant="h3">
-          {t('releatedProducts')}
-        </Typography>
+        <Typography variant="h3">{t("releatedProducts")}</Typography>
         <Box
           mt="20px"
           display="flex"
