@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Specify the location of the sitemap
-# Sitemap: https://horreror.com/sitemap.xml
+Sitemap: https://horreror.com/sitemap.xml
 
 # Targeting Bulgaria
 User-agent: Googlebot
