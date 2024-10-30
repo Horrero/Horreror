@@ -154,7 +154,7 @@ const CartMenu = () => {
             <FlexBox m="20px 0">
               <Typography fontWeight="bold">{t("subtotal")}</Typography>
               <Typography fontWeight="bold">
-                {totalPrice}
+                {Math.round(totalPrice*100)/100}
                 {i18n.language === "bg" ? "лв" : "bgn"}
               </Typography>
             </FlexBox>
