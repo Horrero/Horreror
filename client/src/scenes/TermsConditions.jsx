@@ -82,8 +82,8 @@ const TermsandConditions = () => {
       <Typography variant='h3' color="red">13. Contact Information</Typography>
       <Typography variant='p'>
         If you have any questions or concerns regarding these Terms and Conditions or your order, you can contact us through the following:
-        <br />- <strong>Email:</strong> [Your email address]
-        <br />- <strong>Phone:</strong> [Your phone number]
+        <br />- <strong>Email:</strong> horreror.com@gmail.com
+        <br />- <strong>Phone:</strong> 0876502885
       </Typography>
       <br /><br />
 
