@@ -23,6 +23,12 @@ body {
   color: white;
 }
 
+.descriptionImages p img {
+  max-width: 100%;
+  width: 100%;
+  max-width: 500px;
+}
+
 /* MyForm.css */
 form input[type="text"],
 form input[type="email"],
