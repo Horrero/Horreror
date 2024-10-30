@@ -160,7 +160,7 @@ const ItemDetails = () => {
       </Box>
       <Box display="flex" flexWrap="wrap" gap="15px">
         {value === "description" && (
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+          <ReactMarkdown remarkPlugins={[remarkGfm]} className="descriptionImages">
             {i18n.language === "bg"
               ? item?.attributes?.longDescriptionBg
               : item?.attributes?.longDescription}
