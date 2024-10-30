@@ -1,3 +1,10 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
+
+# Specify the location of the sitemap
+# Sitemap: https://horreror.com/sitemap.xml
+
+# Targeting Bulgaria
+User-agent: Googlebot
+Allow: /

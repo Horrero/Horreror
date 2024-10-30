@@ -83,8 +83,7 @@ const CartMenu = () => {
                       width="123px"
                       height="164px"
                       src={
-                        item?.attributes?.image?.data?.attributes?.formats
-                          ?.medium?.url
+                        item?.attributes?.image?.data?.attributes?.url
                       }
                     />
                   </Box>

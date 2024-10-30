@@ -17,9 +17,7 @@ const Item = ({ item, width }) => {
 
   const { price, name, nameBg, image, soldOut } = item.attributes;
   const imageUrl =
-    image?.data?.attributes?.formats?.medium?.url ||
-    image?.data?.attributes?.formats?.small?.url || 
-    image?.data?.attributes?.formats?.thumbnail?.url ||
+    image?.data?.attributes?.url ||
     "";
 
   const { i18n } = useTranslation();

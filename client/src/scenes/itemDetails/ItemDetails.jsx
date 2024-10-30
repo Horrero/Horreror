@@ -47,6 +47,7 @@ const ItemDetails = () => {
     );
     const itemsJson = await items.data;
     setItems(itemsJson.data);
+    console.log(itemsJson.data);
   };
 
   useEffect(() => {
@@ -58,14 +59,14 @@ const ItemDetails = () => {
     <Box width="80%" m="80px auto">
       <Box display="flex" flexWrap="wrap" columnGap="40px">
         {/*IMAGES */}
-        {item?.attributes?.image?.data?.attributes?.formats?.medium?.url && (
+        {item?.attributes?.image?.data?.attributes?.url && (
           <Box flex="1 1 40%" mb="40px">
             <img
               alt={item?.name}
               width="100%"
               height="100%"
               src={
-                item?.attributes?.image?.data?.attributes?.formats?.medium?.url
+                item?.attributes?.image?.data?.attributes?.url
               }
               style={{ objectFit: "contain" }}
             />
