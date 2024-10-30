@@ -11,6 +11,7 @@ import AboutUs from "./scenes/Aboutus";
 import Termsconditions from "./scenes/TermsConditions";
 import Privacypolicy from "./scenes/Privacypolicy";
 import Returns from "./scenes/Returns";
+import Sizes from "./scenes/Sizes";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -37,6 +38,7 @@ const App = () => {
           <Route path="/terms-and-conditions" element={<Termsconditions />} />
           <Route path="/privacy-policy" element={<Privacypolicy />} />
           <Route path="/returns-refunds" element={<Returns />} />
+          <Route path="/sizes" element={<Sizes />} />
         </Routes>
         <CartMenu />
         <Footer />

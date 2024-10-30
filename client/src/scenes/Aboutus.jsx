@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
 
-import heroImage from "../assets/header_1.png";
-import image from "../assets/IMG_9798.jpeg";
+import heroImage from "../assets/header_1.webp";
+import image from "../assets/IMG_9798.webp";
 import { useTranslation } from 'react-i18next';
 
 const AboutUs = () => {

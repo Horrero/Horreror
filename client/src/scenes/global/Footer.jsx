@@ -59,8 +59,13 @@ const Footer = () => {
             </Typography>
           </Link>
           <Link href="/returns-refunds" color="inherit" underline="none">
-            <Typography variant="h4" mb="15px" color="#fff">
+            <Typography variant="h4" mb="30px" color="#fff">
               Returns & Refunds
+            </Typography>
+          </Link>
+          <Link href="/sizes" color="inherit" underline="none">
+            <Typography variant="h4" mb="15px" color="#fff">
+              Sizes
             </Typography>
           </Link>
         </Box>
