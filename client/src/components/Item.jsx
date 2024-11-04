@@ -114,7 +114,34 @@ const Item = ({ item, width }) => {
           {i18n.language === 'bg' ? nameBg : name}
         </Typography>
         {!soldOut && (
-          <Typography fontWeight="bold" fontSize={"20px"}>{price} {i18n.language === 'bg' ? "лв" : "bgn"}</Typography>
+          <Box display="flex" alignItems="center">
+            {item.attributes.discountPrice ? (
+              <>
+                <Typography
+                  fontWeight="bold"
+                  fontSize={"20px"}
+                  style={{
+                    textDecoration: "line-through",
+                    color: "gray",
+                    marginRight: "10px"
+                  }}
+                >
+                  {price} {i18n.language === 'bg' ? "лв" : "bgn"}
+                </Typography>
+                <Typography
+                  fontWeight="bold"
+                  fontSize={"22px"}
+                  color="red"
+                >
+                  {item.attributes.discountPrice} {i18n.language === 'bg' ? "лв" : "bgn"}
+                </Typography>
+              </>
+            ) : (
+              <Typography fontWeight="bold" fontSize={"20px"}>
+                {price} {i18n.language === 'bg' ? "лв" : "bgn"}
+              </Typography>
+            )}
+          </Box>
         )}
       </Box>
     </Box>

@@ -34,7 +34,6 @@ const ItemDetails = () => {
       URL+"/api/items/"+itemId+"?populate=image"
     );
     const itemJson = await item.data;
-    console.log(itemJson.data);
     if(itemJson.data.attributes.soldOut) {
       document.location.href = "/";
     }
@@ -47,7 +46,6 @@ const ItemDetails = () => {
     );
     const itemsJson = await items.data;
     setItems(itemsJson.data);
-    console.log(itemsJson.data);
   };
 
   useEffect(() => {
@@ -86,10 +84,34 @@ const ItemDetails = () => {
                 ? item?.attributes?.nameBg
                 : item?.attributes?.name}
             </Typography>
-            <Typography>
-              {item?.attributes?.price}
-              {i18n.language === "bg" ? "лв" : "bgn"}
-            </Typography>
+            <Box display="flex" alignItems="center">
+              {item?.attributes?.discountPrice ? (
+                <>
+                  <Typography
+                    fontWeight="bold"
+                    fontSize={"20px"}
+                    style={{
+                      textDecoration: "line-through",
+                      color: "gray",
+                      marginRight: "10px"
+                    }}
+                  >
+                    {item?.attributes?.price} {i18n.language === 'bg' ? "лв" : "bgn"}
+                  </Typography>
+                  <Typography
+                    fontWeight="bold"
+                    fontSize={"22px"}
+                    color="red"
+                  >
+                    {item?.attributes?.discountPrice} {i18n.language === 'bg' ? "лв" : "bgn"}
+                  </Typography>
+                </>
+              ) : (
+                <Typography fontWeight="bold" fontSize={"20px"}>
+                  {item?.attributes?.price} {i18n.language === 'bg' ? "лв" : "bgn"}
+                </Typography>
+              )}
+            </Box>
             <Typography sx={{ mt: "20px" }}>
               {i18n.language === "bg"
                 ? item?.attributes?.shortDescriptionBg
