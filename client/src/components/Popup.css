@@ -1,0 +1,87 @@
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 5%;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    aspect-ratio: 1 / 1; /* Maintain a 1:1 aspect ratio */
+    background: url('../assets/littleTime.webp') no-repeat center center;
+    background-size: cover;
+    color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-overlay h2 {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    font-family: Forresta Personal Use;
+    font-weight: lighter;
+    margin: 0;
+    margin-top: 12px;
+}
+
+.digit {
+    background-color: #0e0e0e;
+    border-radius: 5px;
+    margin: 0 .5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 9%; /* Each digit takes up 20% of the width */
+    padding-top: 1%;
+    padding-bottom: 1%;
+    position: relative;
+}
+
+.popup h2 span.separator {
+    margin: 0 1%;
+    font-size: 2vw;
+}
+
+.seperation {
+    margin: 0 1.5%;
+}
+
+.close-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    width: 30px;
+    height: 30px;
+}
+
+.close-btn svg {
+    width: 100%;
+    height: 100%;
+}
