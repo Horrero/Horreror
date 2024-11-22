@@ -16,7 +16,7 @@ const Home = () => {
     } else {
       setIsOpen(false);
     }
-  }, []);
+  }, [currentDate, startDate, endDate]);
 
   return (
     <div className="home">
