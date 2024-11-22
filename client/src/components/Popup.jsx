@@ -6,7 +6,7 @@ const Popup = () => {
     const [timeLeft, setTimeLeft] = useState({});
 
     useEffect(() => {
-        const countdownDate = new Date(`${new Date().getFullYear()}-11-30T00:00:00`).getTime();
+        const countdownDate = new Date(Date.UTC(2024, 10, 29, 16, 0, 0)).getTime();
 
         const updateTimer = () => {
             const now = new Date().getTime();

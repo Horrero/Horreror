@@ -100,7 +100,7 @@ const CartMenu = () => {
                           dispatch(removeFromCart({ id: item.id }))
                         }
                       >
-                        <CloseIcon />
+                        <CloseIcon style={{color: "white"}} />
                       </IconButton>
                     </FlexBox>
                     <Typography>
