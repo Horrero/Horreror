@@ -29,7 +29,7 @@ const CartMenu = () => {
   const { t, i18n } = useTranslation();
 
   const totalPrice = cart.reduce((total, item) => {
-    return total + item.count * item.attributes?.price;
+    return total + item.count * (item.attributes?.discountPrice || item.attributes?.price);
   }, 0);
 
   return (
@@ -137,7 +137,7 @@ const CartMenu = () => {
 
                       {/* PRICE */}
                       <Typography fontWeight="bold">
-                        {item.attributes.price}
+                        {item.attributes?.discountPrice || item.attributes.price}
                         {i18n.language === "bg" ? "лв" : "bgn"}
                       </Typography>
                     </FlexBox>

@@ -78,7 +78,34 @@ const ItemDetails = () => {
         )}
         <Box flex="1 1 50%" mb="40px">
           <Typography variant="h3">{item?.attributes?.name}</Typography>
-          <Typography>${item?.attributes?.price}</Typography>
+          <Box display="flex" alignItems="center">
+              {item?.attributes?.discountPrice ? (
+                <>
+                  <Typography
+                    fontWeight="bold"
+                    fontSize={"20px"}
+                    style={{
+                      textDecoration: "line-through",
+                      color: "gray",
+                      marginRight: "10px"
+                    }}
+                  >
+                    {item?.attributes?.price} {i18n.language === 'bg' ? "лв" : "bgn"}
+                  </Typography>
+                  <Typography
+                    fontWeight="bold"
+                    fontSize={"22px"}
+                    color="red"
+                  >
+                    {item?.attributes?.discountPrice} {i18n.language === 'bg' ? "лв" : "bgn"}
+                  </Typography>
+                </>
+              ) : (
+                <Typography fontWeight="bold" fontSize={"20px"}>
+                  {item?.attributes?.price} {i18n.language === 'bg' ? "лв" : "bgn"}
+                </Typography>
+              )}
+          </Box>
           <Typography sx={{ mt: "20px" }}>
             {i18n.language === "bg" ? item?.attributes?.shortDescriptionBg : item?.attributes?.shortDescription}
           </Typography>
