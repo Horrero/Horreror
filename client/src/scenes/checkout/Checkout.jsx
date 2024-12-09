@@ -139,7 +139,8 @@ const Checkout = () => {
       })),
       billingInformation: values.billingAddress,
       isSameAddress: values.shippingAddress.isSameAddress,
-      shippingInformation: values.shippingAddress
+      shippingInformation: values.shippingAddress,
+      dev: localStorage.getItem("dev") === "true",
     };
 
     try {

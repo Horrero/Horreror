@@ -77,7 +77,7 @@ const ShoppingList = () => {
         rowGap="20px"
         columnGap="1.33%"
       >
-        {items.map((item) => (
+        {items.map((item) => (item.id != 20 || localStorage.getItem("dev")) && (
           <Item item={item} key={`${item.name}-${item.id}`} />
         ))}
         {/* {value === "all" &&
