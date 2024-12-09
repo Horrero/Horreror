@@ -202,7 +202,7 @@ const ItemDetails = () => {
           columnGap="1.33%"
           justifyContent="space-between"
         >
-          {items.slice(0, 4).map((item, i) => (item.id != 20 || localStorage.getItem("dev")) &&  (
+          {items.slice(0, 4).map((item, i) => (item.id !== 20 || localStorage.getItem("dev")) &&  (
             <Item key={`${item.name}-${i}`} item={item} />
           ))}
         </Box>
