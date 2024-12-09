@@ -92,8 +92,8 @@ const CartMenu = () => {
                     <FlexBox mb="5px">
                       <Typography fontWeight="bold">
                         {i18n.language === "bg"
-                          ? item.attributes.nameBg
-                          : item.attributes.name}
+                          ? `${item.attributes.nameBg} (${item.size})`
+                          : `${item.attributes.name} (${item.size})`}
                       </Typography>
                       <IconButton
                         onClick={() =>

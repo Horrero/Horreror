@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { Box, IconButton, Typography, Tabs, Tab } from "@mui/material";
+import { Box, IconButton, Typography, Button, Tabs, Tab } from "@mui/material";
 // import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import AddIcon from "@mui/icons-material/Add";
@@ -23,6 +23,8 @@ const ItemDetails = () => {
   const [count, setCount] = useState(1);
   const [item, setItem] = useState(null);
   const [items, setItems] = useState([]);
+  const [sizes, setSizes] = useState([]);
+  const [selectedSize, setSelectedSize] = useState(null);
   const { t, i18n } = useTranslation();
 
   const handleChange = (event, newValue) => {
@@ -31,22 +33,26 @@ const ItemDetails = () => {
 
   const getItem = async () => {
     const item = await axios.get(
-      URL+"/api/items/"+itemId+"?populate=image"
+      URL + "/api/items/" + itemId + "?populate=image,sizes"
     );
     const itemJson = await item.data;
-    if(itemJson.data.attributes.soldOut) {
-      document.location.href = "/";
-    }
     setItem(itemJson.data);
+    setSizes(itemJson.data.attributes.sizes);
   };
 
   const getItems = async () => {
-    const items = await axios.get(
-      URL+"/api/items?populate=image"
-    );
+    const items = await axios.get(URL + "/api/items?populate=image,sizes");
     const itemsJson = await items.data;
     setItems(itemsJson.data);
   };
+
+  const handleAddToCart = () => {
+    if (!selectedSize) {
+      alert("Please select a size");
+      return;
+    }
+    dispatch(addToCart({ item: { ...item, size: selectedSize, count } }))
+  }
 
   useEffect(() => {
     getItem();
@@ -70,56 +76,26 @@ const ItemDetails = () => {
             />
           </Box>
         )}
-
-        {/* ACTIONS */}
         <Box flex="1 1 50%" mb="40px">
-          <Box display="flex" justifyContent="space-between">
-            {/* <Box>Home/Item</Box> */}
-            {/* <Box>Prev Next</Box> */}
-          </Box>
-
-          <Box m="65px 0 25px 0">
-            <Typography variant="h3">
-              {i18n.language === "bg"
-                ? item?.attributes?.nameBg
-                : item?.attributes?.name}
-            </Typography>
-            <Box display="flex" alignItems="center">
-              {item?.attributes?.discountPrice ? (
-                <>
-                  <Typography
-                    fontWeight="bold"
-                    fontSize={"20px"}
-                    style={{
-                      textDecoration: "line-through",
-                      color: "gray",
-                      marginRight: "10px"
-                    }}
-                  >
-                    {item?.attributes?.price} {i18n.language === 'bg' ? "лв" : "bgn"}
-                  </Typography>
-                  <Typography
-                    fontWeight="bold"
-                    fontSize={"22px"}
-                    color="red"
-                  >
-                    {item?.attributes?.discountPrice} {i18n.language === 'bg' ? "лв" : "bgn"}
-                  </Typography>
-                </>
-              ) : (
-                <Typography fontWeight="bold" fontSize={"20px"}>
-                  {item?.attributes?.price} {i18n.language === 'bg' ? "лв" : "bgn"}
-                </Typography>
-              )}
+          <Typography variant="h3">{item?.attributes?.name}</Typography>
+          <Typography>${item?.attributes?.price}</Typography>
+          <Typography sx={{ mt: "20px" }}>
+            {i18n.language === "bg" ? item?.attributes?.shortDescriptionBg : item?.attributes?.shortDescription}
+          </Typography>
+          <Box mb="10px">
+            <Typography variant="h6">{t("availableSizes")}</Typography>
+            <Box display="flex" gap="10px">
+              {sizes.map((size) => (
+                <Button
+                  key={size.id}
+                  variant={selectedSize === size.name ? 'contained' : 'outlined'}
+                  onClick={() => setSelectedSize(size.name)}
+                >
+                  {size.name}
+                </Button>
+              ))}
             </Box>
-            <Typography sx={{ mt: "20px" }}>
-              {i18n.language === "bg"
-                ? item?.attributes?.shortDescriptionBg
-                : item?.attributes?.shortDescription}
-            </Typography>
           </Box>
-
-          {/* COUNT AND BUTTON */}
           <Box display="flex" alignItems="center" minHeight="50px">
             <Box
               display="flex"
@@ -128,24 +104,15 @@ const ItemDetails = () => {
               mr="20px"
               p="2px 5px"
             >
-              <IconButton
-                style={{ color: "white" }}
-                onClick={() => setCount(Math.max(count - 1, 0))}
-              >
-                <RemoveIcon />
+              <IconButton onClick={() => setCount(Math.max(count - 1, 1))}>
+                <RemoveIcon style={{color: "white"}} />
               </IconButton>
               <Typography sx={{ p: "0 5px" }}>{count}</Typography>
-              <IconButton
-                style={{ color: "white" }}
-                onClick={() => setCount(count + 1)}
-              >
-                <AddIcon />
+              <IconButton onClick={() => setCount(count + 1)}>
+                <AddIcon style={{color: "white"}} />
               </IconButton>
             </Box>
             <IconButton
-              onClick={() => {
-                dispatch(addToCart({ item: { ...item, count } }));
-              }}
               sx={{
                 backgroundColor: "darkRed", // Default background color
                 color: "white",
@@ -154,9 +121,9 @@ const ItemDetails = () => {
                   backgroundColor: "rgba(139, 0, 0, 0.6)", // Dark red with less transparency on hover
                 },
               }}
+              onClick={() => handleAddToCart()}
             >
               <ShoppingCartIcon style={{ transform: "scale(0.75, 0.75)" }} />{" "}
-              {/* Add an icon here */}
             </IconButton>
           </Box>
 
@@ -202,7 +169,7 @@ const ItemDetails = () => {
           columnGap="1.33%"
           justifyContent="space-between"
         >
-          {items.slice(0, 4).map((item, i) => (item.id !== 20 || localStorage.getItem("dev")) &&  (
+          {items.slice(0, 4).map((item, i) => /* (item.id !== 20 || localStorage.getItem("dev")) && */  (
             <Item key={`${item.name}-${i}`} item={item} />
           ))}
         </Box>

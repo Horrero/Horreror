@@ -133,14 +133,15 @@ const Checkout = () => {
       cashOnDelivery: values.cashOnDelivery,
       email: values.email,
       phoneNumber: values.phoneNumber,
-      products: cart.map(({ id, count }) => ({
+      products: cart.map(({ id, size, count }) => ({
         id,
+        size,
         count,
       })),
       billingInformation: values.billingAddress,
       isSameAddress: values.shippingAddress.isSameAddress,
       shippingInformation: values.shippingAddress,
-      dev: localStorage.getItem("dev") === "true",
+      // dev: localStorage.getItem("dev") === "true",
     };
 
     try {

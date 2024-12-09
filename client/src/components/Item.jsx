@@ -1,19 +1,20 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { Box, IconButton, Typography } from "@mui/material";
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import AddIcon from "@mui/icons-material/Add";
-import RemoveIcon from "@mui/icons-material/Remove";
-import { shades } from "../theme";
-import { addToCart } from "../state";
+// import { useState } from "react";
+// import { useDispatch } from "react-redux";
+import { Box, Typography } from "@mui/material";
+// import { Box, IconButton, Typography } from "@mui/material";
+// import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+// import AddIcon from "@mui/icons-material/Add";
+// import RemoveIcon from "@mui/icons-material/Remove";
+// import { shades } from "../theme";
+// import { addToCart } from "../state";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 
 const Item = ({ item, width }) => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const [count, setCount] = useState(1);
-  const [isHovered, setIsHovered] = useState(false);
+  // const dispatch = useDispatch();
+  // const [count, setCount] = useState(1);
+  // const [isHovered, setIsHovered] = useState(false);
 
   const { price, name, nameBg, image, soldOut } = item.attributes;
   const imageUrl =
@@ -26,8 +27,8 @@ const Item = ({ item, width }) => {
     <Box width={width}>
       <Box
         position="relative"
-        onMouseOver={() => !soldOut && setIsHovered(true)}
-        onMouseOut={() => !soldOut && setIsHovered(false)}
+        // onMouseOver={() => !soldOut && setIsHovered(true)}
+        // onMouseOut={() => !soldOut && setIsHovered(false)}
       >
         {imageUrl && 
           <img
@@ -66,7 +67,7 @@ const Item = ({ item, width }) => {
             Sold Out
           </Typography>
         )}
-        {!soldOut && (
+        {/* {!soldOut && (
           <Box
             display={isHovered ? "block" : "none"}
             position="absolute"
@@ -107,7 +108,7 @@ const Item = ({ item, width }) => {
               </IconButton>
             </Box>
           </Box>
-        )}
+        )} */}
       </Box>
       <Box mt="3px">
         <Typography fontFamily={"Rubik Wet Paint"} fontSize={"24px"}>

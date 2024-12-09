@@ -14,16 +14,15 @@ export const cartSlice = createSlice({
       state.items = action.payload;
     },
     addToCart: (state, action) => {
-      // Find the index of the item with the same id in the cart
-      const existingItemIndex = state.cart.findIndex(item => item.id === action.payload.item.id);
-    
-      // If the item exists, update its count
-      if (existingItemIndex !== -1) {
-        state.cart[existingItemIndex].count += action.payload.item.count;
+      const existingItem = state.cart.find(
+        (item) => item.id === action.payload.item.id && item.size === action.payload.item.size
+      );
+      if (existingItem) {
+        existingItem.count += action.payload.item.count;
       } else {
         state.cart = [...state.cart, action.payload.item];
       }
-    },    
+    },
     removeFromCart: (state, action) => {
       state.cart = state.cart.filter((item) => item.id !== action.payload.id);
     },
