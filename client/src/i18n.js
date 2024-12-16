@@ -45,6 +45,9 @@ const resources = {
       returnIntroduction: "1. Introduction",
       returnIntroductionText: "Returns are accepted within 30 days if the product is unused and undamaged. Refund eligibility will be determined on a case-by-case basis. To initiate a return or request a refund, please contact us at horreror.com@gmail.com or by phone at +359 876 502 885.",
       availableSizes: "Available Sizes",
+      home: "Home",
+      pleaseTryAgainLater: "Please try again later.",
+      oopsError: "Oops! There was an error with your order"
     },
   },
   bg: {
@@ -90,6 +93,9 @@ const resources = {
       returnIntroduction: "1. Въведение",
       returnIntroductionText: "Връщания се приемат в рамките на 30 дни, ако продуктът е неупотребяван и неповреден. Възможността за възстановяване на сума ще се преценява индивидуално за всеки случай. За да инициирате връщане или да заявите възстановяване на сума, моля, свържете се с нас на horreror.com@gmail.com или на телефон +359 876 502 885.",
       availableSizes: "Налични Размери",
+      home: "Начало",
+      pleaseTryAgainLater: "Моля, опитайте по-късно.",
+      oopsError: "Опа! Възникна грешка с вашата поръчка.",
     },
   },
 };

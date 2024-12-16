@@ -167,6 +167,7 @@ const Checkout = () => {
         sessionId: session.id,
       });
     } catch (error) {
+      document.location.href = "/checkout/cancel";
       console.error("Error processing payment", error);
     }
   };
