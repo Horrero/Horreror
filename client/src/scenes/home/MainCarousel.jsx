@@ -4,8 +4,9 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useTranslation } from "react-i18next";
 
 // Import your images
-import heroTextureImport from "../../assets/header_1.webp";
-import secondImage from "../../assets/header_2.webp";
+import heroTextureImport from "../../assets/header_0.jpg";
+import secondImage from "../../assets/header_1.webp";
+import thirdImage from "../../assets/header_2.webp";
 
 const MainCarousel = () => {
   const { t } = useTranslation();
@@ -42,6 +43,20 @@ const MainCarousel = () => {
           <img
             src={secondImage}
             alt="Second Slide"
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              backgroundAttachment: "fixed",
+              zIndex: "-2",
+            }}
+          />
+        </div>
+
+        <div style={{ width: "100%", height: "700px" }}>
+          <img
+            src={thirdImage}
+            alt="Third Slide"
             style={{
               width: "100%",
               height: "100%",
