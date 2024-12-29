@@ -116,7 +116,13 @@ const ItemDetails = () => {
                 <Button
                   key={size.id}
                   variant={selectedSize === size.name ? 'contained' : 'outlined'}
-                  onClick={() => setSelectedSize(size.name)}
+                  style={{color: selectedSize === size.name ? "black" : size.soldOut ? "black" : "white"}}
+                  onClick={() => !size.soldOut && setSelectedSize(size.name)}
+                  disabled={size.soldOut}
+                  sx={{
+                    backgroundColor: selectedSize === size.name ? "white" : size.soldOut ? 'rgba(255, 255, 255, 0.2)' : 'initial',
+                    cursor: size.soldOut ? "not-allowed" : 'pointer',
+                  }}
                 >
                   {size.name}
                 </Button>
