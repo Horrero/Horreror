@@ -1,97 +1,75 @@
 import { Box, Typography } from '@mui/material'
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 const TermsandConditions = () => {
+  const { i18n } = useTranslation();
+
   return (
     <Box width="80%" margin="80px auto">
-      <Typography variant='h2' color="darkred">Terms and Conditions</Typography>
+      <Typography variant='h2' color="darkred">
+        {i18n.language === "en" ? "Terms & Conditions" : "Условия за ползване"}
+      </Typography>
       <br />
 
-      <Typography variant='h3' color="red">1. Introduction</Typography>
       <Typography variant='p'>
-        Welcome to our online store. By using this website and making a purchase, you agree to the following <strong>Terms and Conditions</strong>. Please read these carefully before completing your order. If you do not agree with any part of these terms, you should not proceed with using this website.
+        {i18n.language === "en" 
+          ? "Using this site and placing an order through it is considered acceptance of the stated terms. If you DO NOT ACCEPT these terms, please do not use this website. Horreror.com reserves the right to change the terms at any time without prior notice, with the changed terms being published on the site."
+          : "Използването на този сайт и направата на поръчка чрез него, се счита за съгласие с посочените условия. Ако НЕ ПРИЕМАТЕ тези условия, моля, не използвайте този уеб сайт. Horreror.com си запазва правото да променя условията по всяко време, без предварително известие, като променените условия ще бъдат публикувани в сайта."
+        }
+      </Typography>
+      <br />
+
+      <Typography variant='p'>
+        {i18n.language === "en" 
+          ? "Horreror.com is not responsible if the customer has provided incorrect or incomplete data in an order made to an address."
+          : "Horreror.com не носи отговорност, ако клиентът е посочил неверни или непълни данни в направена поръчка на адрес."
+        }
+      </Typography>
+      <br />
+
+      <Typography variant='p'>
+        {i18n.language === "en" 
+          ? "Horreror.com guarantees that all products are brand new (unused) and are packaged in original packaging."
+          : "Horreror.com гарантира, че всички продукти са фабрично нови (неупотребявани) и са опаковани в оригинална опаковка."
+        }
       </Typography>
       <br /><br />
 
-      <Typography variant='h3' color="red">2. Eligibility</Typography>
-      <Typography variant='p'>
-        To make a purchase on our website, you must provide accurate and complete information at checkout. We do not set any specific age restrictions, but users must provide the necessary details to complete the transaction. By making a purchase, you agree that all the information provided is correct.
+      <Typography variant='p' color="red">
+        {i18n.language === "en" ? "The customer is obliged to:" : "Клиентът се задължава:"}
+        <ul style={{marginTop: "0", color: "white"}}>
+          <li>{i18n.language === "en" ? "to provide their full name, accurate and valid phone number, delivery address, and email address;" : "да посочи двете си имена, точен и валиден телефон, адрес за доставка и електронен адрес;"}</li>
+          <li>{i18n.language === "en" ? "Horreror.com delivers orders only within the Republic of Bulgaria!" : "Horreror.com доставя поръчки само в рамките на република България!"}</li>
+          <li>{i18n.language === "en" ? "to pay the price of the goods according to the terms described in the delivery and payment information;" : "да плати цената на стоката според условията описани в информацията за доставка и плащане на стоки;"}</li>
+          <li>{i18n.language === "en" ? "to ensure access and the possibility of receiving the goods." : "да осигури достъп и възможност за получаване на стоката."}</li>
+          <li>{i18n.language === "en" ? "Horreror.com accepts payments only in cash upon receipt of the order from the courier or office;" : "Horreror.com приема плащания само в брой при получаване на поръчката от куриер или офис;"}</li>
+          <li>{i18n.language === "en" ? "to pay the delivery costs." : "да заплати разходите по доставката."}</li>
+        </ul>
       </Typography>
-      <br /><br />
+      <br />
 
-      <Typography variant='h3' color="red">3. Product Information</Typography>
-      <Typography variant='p'>
-        We offer clothing products for sale. All product descriptions, images, and prices are accurate to the best of our knowledge. The photos of the products represent the actual items being sold. However, minor variations may occur due to display settings, lighting, or other factors. Prices may be subject to change at any time without notice, but these changes will not affect any confirmed orders.
+      <Typography variant='p' color="red">
+        {i18n.language === "en" ? "The customer has the right to refuse to receive the goods ordered by him when it is delivered under one of the following conditions:" : "Клиентът има право да откаже получаването на заявената за покупка от него стока, когато тя му е доставена при едно от следните условия:"}
+        <ul style={{marginTop: "0", color: "white"}}>
+          <li>{i18n.language === "en" ? "the delivered goods clearly do not correspond to the goods ordered by the customer and this can be established by their ordinary inspection;" : "доставената стока явно не съответства на заявената за покупка от клиента и това може да се установи чрез обикновения й преглед;"}</li>
+          <li>{i18n.language === "en" ? "the price that the customer has to pay does not correspond to the due price;" : "цената, която клиентът следва да заплати, не съответства на дължимата цена;"}</li>
+          <li>{i18n.language === "en" ? "in case of discrepancy between the ordered and delivered goods, which could not be established at the time of delivery." : "при несъответствие между заявената за покупка и доставената стока, което не е било възможно да бъде установено в момента на доставката."}</li>
+        </ul>
       </Typography>
-      <br /><br />
+      <br />
 
-      <Typography variant='h3' color="red">4. Payment Terms</Typography>
-      <Typography variant='p'>
-        We accept payments exclusively through <strong>Stripe</strong>, which supports major credit cards like Mastercard and Visa. By completing a purchase, you agree to Stripe’s terms of service for payment processing. No payment details (such as credit card information) are stored on our website. All payments are securely handled through Stripe's encrypted system.
+      <Typography variant='p' color="red">
+        {i18n.language === "en" ? "The customer has the right to return the received goods within 14 working days from the date of receipt of the delivery, under the following conditions:" : "Клиентът има право да върне получената стока в рамките на 14 работни дни от датата на получаване на доставката, при следните условия:"}
+        <ul style={{marginTop: "0", color: "white"}}>
+          <li>{i18n.language === "en" ? "when it is in good commercial condition, original packaging, with original labels and contains all additional gifts;" : "когато тя е в добър търговски вид, оригинална опаковка, с оригинални етикети и съдържа всички допълнителни подаръци;"}</li>
+          <li>{i18n.language === "en" ? "it has not been worn;" : "не е носена;"}</li>
+          <li>{i18n.language === "en" ? "Horreror.com refunds the purchase amount if all conditions are met, after reviewing the returned order, Horreror.com refunds the full amount of the goods through courier companies Speedy and/or Econt within 14 working days via cash on delivery;" : "Horreror.com възстановява сумата на покупката, ако всички условия са на лице, след преглед на върнатата поръчка, Horreror.com възстановява пълната сума на стоката, чрез куриерски фирми Спиди и/или Еконт в рамките на 14 работни дни чрез наложен платеж;"}</li>
+          <li>{i18n.language === "en" ? "the return costs are borne by the customer;" : "като разходите по връщането са за сметка на клиента;"}</li>
+          <li>{i18n.language === "en" ? "if the above conditions are not met, Horreror.com does not refund the amount for the returned order." : "при неизпълнение на горе посочените условия Horreror.com не възстановява сумата по върнатата поръчка."}</li>
+        </ul>
       </Typography>
-      <br /><br />
-
-      <Typography variant='h3' color="red">5. Shipping and Delivery</Typography>
-      <Typography variant='p'>
-        At this time, we ship only within <strong>Bulgaria</strong>. After you complete your purchase, your product will be shipped to the address you provided. Shipping fees and delivery times will be provided during checkout. We are not responsible for any delays that occur after the package has been dispatched. Tracking information may be provided when available.
-      </Typography>
-      <br /><br />
-
-      <Typography variant='h3' color="red">6. User Responsibilities</Typography>
-      <Typography variant='p'>
-        You agree to provide accurate and complete information when placing an order, including correct contact details and shipping address. If the contact information provided is incorrect and we are unable to reach you regarding any issues with your order, the order may be delayed or canceled.
-      </Typography>
-      <br /><br />
-
-      <Typography variant='h3' color="red">7. Intellectual Property</Typography>
-      <Typography variant='p'>
-        All content on this website, including product images, descriptions, designs, logos, and branding, are the intellectual property of our company. These materials may not be copied, distributed, or used for any commercial purposes without our express written permission. Unauthorized use of our intellectual property may result in legal action.
-      </Typography>
-      <br /><br />
-
-      <Typography variant='h3' color="red">8. Limitation of Liability</Typography>
-      <Typography variant='p'>
-        We make every effort to ensure that our website functions smoothly and that all information is accurate. However, we do not guarantee that the website will always be available or error-free. We will not be held liable for any damages, including indirect, incidental, or consequential damages, arising from the use of our website or the purchase of our products.
-      </Typography>
-      <br /><br />
-
-      <Typography variant='h3' color="red">9. User-Generated Content</Typography>
-      <Typography variant='p'>
-        We do not currently allow user-generated content, such as reviews or comments, on our website.
-      </Typography>
-      <br /><br />
-
-      <Typography variant='h3' color="red">10. Termination of Use</Typography>
-      <Typography variant='p'>
-        We reserve the right to terminate or suspend any user’s access to our website if they violate these Terms and Conditions or misuse our services.
-      </Typography>
-      <br /><br />
-
-      <Typography variant='h3' color="red">11. Governing Law</Typography>
-      <Typography variant='p'>
-        These Terms and Conditions are governed by and construed in accordance with the laws of <strong>Bulgaria</strong>. Any disputes arising from the use of this website or related to purchases will be subject to the exclusive jurisdiction of the courts of <strong>Bulgaria</strong>.
-      </Typography>
-      <br /><br />
-
-      <Typography variant='h3' color="red">12. Changes to the Terms</Typography>
-      <Typography variant='p'>
-        We reserve the right to modify these Terms and Conditions at any time. Any changes will be effective immediately upon posting on the website. Users will need to agree to the updated terms each time they make a purchase, but we will not provide individual notifications of changes.
-      </Typography>
-      <br /><br />
-
-      <Typography variant='h3' color="red">13. Contact Information</Typography>
-      <Typography variant='p'>
-        If you have any questions or concerns regarding these Terms and Conditions or your order, you can contact us through the following:
-        <br />- <strong>Email:</strong> horreror.com@gmail.com
-        <br />- <strong>Phone:</strong> 0876502885
-      </Typography>
-      <br /><br />
-
-      <Typography variant='h3' color="red">14. Dispute Resolution</Typography>
-      <Typography variant='p'>
-        In the event of any issues or disputes, we will attempt to resolve the matter as quickly as possible. For urgent matters, we will contact you via the phone number provided during checkout. For non-urgent matters, we may contact you via email. If a dispute cannot be resolved amicably, it will be referred to the courts of <strong>Bulgaria</strong> in accordance with Bulgarian law.
-      </Typography>
-      <br /><br />
+      <br />
     </Box>
   )
 }
