@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { Box, Button, Stepper, Step, StepLabel } from "@mui/material";
+import { Box, Button, Stepper, Step, StepLabel, TextField, Typography } from "@mui/material";
 import { Formik } from "formik";
 import { useEffect, useState } from "react";
 import * as yup from "yup";
@@ -13,7 +13,7 @@ import { useTranslation } from "react-i18next";
 const URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:1337";
 
 const stripePromise = loadStripe(
-  "pk_live_51QEzsaC2jsCWWcVjhLgNCmpM8HjUri85DqxEU6UlObMiMAKzI4KonKaZcn8XfvRgKcLB3Nv2hozurBV9xXBJ7uiJ00ftFa4xRb"
+  process.env.REACT_APP_STRIPE_PUBLIC_KEY || "pk_live_51QEzsaC2jsCWWcVjhLgNCmpM8HjUri85DqxEU6UlObMiMAKzI4KonKaZcn8XfvRgKcLB3Nv2hozurBV9xXBJ7uiJ00ftFa4xRb"
 );
 
 const initialValues = {
@@ -92,7 +92,11 @@ const Checkout = () => {
   const cart = useSelector((state) => state.cart.cart);
   const isFirstStep = activeStep === 0;
   const isSecondStep = activeStep === 1;
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  
+  const [promoCode, setPromoCode] = useState("");
+  const [promoCodeStatus, setPromoCodeStatus] = useState("");
+  const [discount, setDiscount] = useState(0);
 
   useEffect(() => {
     if (cart.length === 0) {
@@ -118,6 +122,28 @@ const Checkout = () => {
     actions.setTouched({});
   };
 
+  const handlePromoCodeChange = async (event) => {
+    const code = event.target.value;
+    setPromoCode(code);
+
+    if (code) {
+      try {
+        const response = await axios.get(URL+"/api/promo-codes/check?code=" + code);
+        if (response.data.valid) {
+          setPromoCodeStatus("valid");
+          setDiscount(response.data.promoCode.Discount);
+        } else {
+          setPromoCodeStatus("invalid");
+          setDiscount(0);
+        }
+      } catch (error) {
+        setPromoCodeStatus("invalid");
+      }
+    } else {
+      setPromoCodeStatus("");
+    }
+  };
+
   const makePayment = async (values) => {
     if (cart.length === 0) {
       return document.location.href = "/";
@@ -141,6 +167,7 @@ const Checkout = () => {
       billingInformation: values.billingAddress,
       isSameAddress: values.shippingAddress.isSameAddress,
       shippingInformation: values.shippingAddress,
+      promoCode: promoCodeStatus === "valid" ? promoCode : null,
       // dev: localStorage.getItem("dev") === "true",
     };
 
@@ -209,6 +236,7 @@ const Checkout = () => {
                 />
               )}
               {isSecondStep && (
+                <>
                 <Payment
                   values={values}
                   errors={errors}
@@ -217,6 +245,74 @@ const Checkout = () => {
                   handleChange={handleChange}
                   setFieldValue={setFieldValue}
                 />
+
+                {/* PROMO CODE */}
+                <Box mt="20px" style={{ display: "flex", flexDirection: "row", gap: "20px" }}>
+                  <TextField
+                    type="text"
+                    label={<span style={{ color: "#FFFFFF" }}>{t('promoCode')}</span>}
+                    onBlur={handleBlur}
+                    onChange={handlePromoCodeChange}
+                    value={promoCode}
+                    name='promoCode'
+                    sx={{ gridColumn: "span 4", marginBottom: "15px" }}
+                    InputProps={{ style: { color: "#FFFFFF", borderColor: "#FFFFFF" } }}
+                    InputLabelProps={{ style: { color: "#FFFFFF" } }}
+                  />
+                  {promoCodeStatus && (
+                    <Typography
+                      sx={{
+                        color: promoCodeStatus === "valid" ? "green" : "red",
+                        marginTop: "10px"
+                      }}
+                    >
+                      {promoCodeStatus === "valid" ? t('promoCodeValid') : t('promoCodeInvalid')}
+                    </Typography>
+                  )}
+                </Box>
+
+                {/* TOTAL PRICE */}
+                <Box mt="20px">
+                  {promoCodeStatus === "valid" ? (<>
+                    <Typography variant="h6">
+                      {t('subtotal')}: {
+                        cart.reduce((total, item) => {
+                          return total + item.count * (item.attributes?.discountPrice || item.attributes?.price);
+                        }, 0).toFixed(2)
+                      }
+                      {i18n.language === "bg" ? "лв" : "bgn"}
+                    </Typography>
+                    <Typography variant="h6" sx={{ color: "green" }}>
+                      {t('discountedPrice')}: -{discount}%
+                    </Typography>
+                    <Box
+                      sx={{
+                        height: "1px",
+                        width: "100%",
+                        backgroundColor: "#FFFFFF",
+                        margin: "10px 0",
+                      }}
+                    />
+                    <Typography variant="h6">
+                      {t('finalSubtotal')}: {
+                        (cart.reduce((total, item) => {
+                          return total + item.count * (item.attributes?.discountPrice || item.attributes?.price);
+                        }, 0).toFixed(2) * (1 - discount / 100)).toFixed(2)
+                      }
+                      {i18n.language === "bg" ? "лв" : "bgn"}
+                    </Typography>
+                  </>) : (
+                    <Typography variant="h6" sx={{ color: "#FFFFFF" }}>
+                      {t('subtotal')}: {
+                        cart.reduce((total, item) => {
+                          return total + item.count * (item.attributes?.discountPrice || item.attributes?.price);
+                        }, 0).toFixed(2)
+                      }
+                      {i18n.language === "bg" ? "лв" : "bgn"}
+                    </Typography>
+                  )}
+                </Box>
+                </>
               )}
               <Box display="flex" justifyContent="space-between" gap="50px">
                 {!isFirstStep && (

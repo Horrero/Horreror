@@ -47,7 +47,12 @@ const resources = {
       availableSizes: "Available Sizes",
       home: "Home",
       pleaseTryAgainLater: "Please try again later.",
-      oopsError: "Oops! There was an error with your order"
+      oopsError: "Oops! There was an error with your order",
+      promoCode: "Promo Code",
+      promoCodeValid: "Promo code is valid",
+      promoCodeInvalid: "Promo code is invalid",
+      discountedPrice: "Discount",
+      finalSubtotal: "Final Subtotal"
     },
   },
   bg: {
@@ -96,6 +101,11 @@ const resources = {
       home: "Начало",
       pleaseTryAgainLater: "Моля, опитайте по-късно.",
       oopsError: "Опа! Възникна грешка с вашата поръчка.",
+      promoCode: "Промо Код",
+      promoCodeValid: "Промо кодът е валиден",
+      promoCodeInvalid: "Промо кодът е невалиден",
+      discountedPrice: "Отстъпка",
+      finalSubtotal: "Крайна цена"
     },
   },
 };
