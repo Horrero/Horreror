@@ -98,6 +98,10 @@ const Checkout = () => {
   const [promoCodeStatus, setPromoCodeStatus] = useState("");
   const [discount, setDiscount] = useState(0);
 
+  const totalPrice = cart.reduce((total, item) => {
+    return total + item.count * (item.attributes?.discountPrice || item.attributes?.price);
+  }, 0);
+
   useEffect(() => {
     if (cart.length === 0) {
       document.location.href = "/";
@@ -275,12 +279,7 @@ const Checkout = () => {
                 <Box mt="20px">
                   {promoCodeStatus === "valid" ? (<>
                     <Typography variant="h6">
-                      {t('subtotal')}: {
-                        cart.reduce((total, item) => {
-                          return total + item.count * (item.attributes?.discountPrice || item.attributes?.price);
-                        }, 0).toFixed(2)
-                      }
-                      {i18n.language === "bg" ? "лв" : "bgn"}
+                      {t('subtotal')}: {totalPrice.toFixed(2)} € / {totalPrice * 1.95.toFixed(2)} {i18n.language === 'bg' ? "лв" : "bgn"}
                     </Typography>
                     <Typography variant="h6" sx={{ color: "green" }}>
                       {t('discountedPrice')}: -{discount}%
@@ -294,21 +293,11 @@ const Checkout = () => {
                       }}
                     />
                     <Typography variant="h6">
-                      {t('finalSubtotal')}: {
-                        (cart.reduce((total, item) => {
-                          return total + item.count * (item.attributes?.discountPrice || item.attributes?.price);
-                        }, 0).toFixed(2) * (1 - discount / 100)).toFixed(2)
-                      }
-                      {i18n.language === "bg" ? "лв" : "bgn"}
+                      {t('finalSubtotal')}: {totalPrice * (1 - discount / 100).toFixed(2)} € / {(totalPrice * (1 - discount / 100) * 1.95).toFixed(2)} {i18n.language === 'bg' ? "лв" : "bgn"}
                     </Typography>
                   </>) : (
                     <Typography variant="h6" sx={{ color: "#FFFFFF" }}>
-                      {t('subtotal')}: {
-                        cart.reduce((total, item) => {
-                          return total + item.count * (item.attributes?.discountPrice || item.attributes?.price);
-                        }, 0).toFixed(2)
-                      }
-                      {i18n.language === "bg" ? "лв" : "bgn"}
+                      {t('subtotal')}: {totalPrice.toFixed(2)} € / {totalPrice * 1.95.toFixed(2)} {i18n.language === 'bg' ? "лв" : "bgn"}
                     </Typography>
                   )}
                 </Box>

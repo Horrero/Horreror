@@ -127,19 +127,22 @@ const Item = ({ item, width }) => {
                     marginRight: "10px"
                   }}
                 >
-                  {price} {i18n.language === 'bg' ? "лв" : "bgn"}
+                  {price} €
                 </Typography>
                 <Typography
                   fontWeight="bold"
                   fontSize={"22px"}
                   color="red"
                 >
-                  {item.attributes.discountPrice} {i18n.language === 'bg' ? "лв" : "bgn"}
+                  {item.attributes.discountPrice} €
+                </Typography>
+                <Typography fontWeight="bold" fontSize={"18px"} ml="10px">
+                / {item.attributes.discountPrice * 1.95.toFixed(2)} {i18n.language === 'bg' ? "лв" : "bgn"}
                 </Typography>
               </>
             ) : (
               <Typography fontWeight="bold" fontSize={"20px"}>
-                {price} {i18n.language === 'bg' ? "лв" : "bgn"}
+                {price} € / {price * 1.95.toFixed(2)} {i18n.language === 'bg' ? "лв" : "bgn"}
               </Typography>
             )}
           </Box>

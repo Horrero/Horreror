@@ -27,24 +27,30 @@ const ScrollToTop = () => {
 const App = () => {
   return (
     <div className="app">
-      <BrowserRouter>
-        <Navbar />
-        <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="item/:itemId" element={<ItemDetails />} />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/checkout/success" element={<Confirmation />} />
-          <Route path="/checkout/cancel" element={<Cancel />} />
-          <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/terms-and-conditions" element={<Termsconditions />} />
-          <Route path="/privacy-policy" element={<Privacypolicy />} />
-          <Route path="/returns-refunds" element={<Returns />} />
-          <Route path="/sizes" element={<Sizes />} />
-        </Routes>
-        <CartMenu />
-        <Footer />
-      </BrowserRouter>
+      {process.env.REACT_APP_MEINTENANCE_BREAK === "true" ? (
+        <div style={{ textAlign: "center", marginTop: "50px" }}>
+          <h1 style={{ fontFamily: "Forresta Personal Use", color: "darkred" }}>We'll be back soon</h1>
+        </div>
+      ) : (
+        <BrowserRouter>
+          <Navbar />
+          <ScrollToTop />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="item/:itemId" element={<ItemDetails />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/checkout/success" element={<Confirmation />} />
+            <Route path="/checkout/cancel" element={<Cancel />} />
+            <Route path="/about-us" element={<AboutUs />} />
+            <Route path="/terms-and-conditions" element={<Termsconditions />} />
+            <Route path="/privacy-policy" element={<Privacypolicy />} />
+            <Route path="/returns-refunds" element={<Returns />} />
+            <Route path="/sizes" element={<Sizes />} />
+          </Routes>
+          <CartMenu />
+          <Footer />
+        </BrowserRouter>
+      )}
     </div>
   );
 };
