@@ -279,7 +279,7 @@ const Checkout = () => {
                 <Box mt="20px">
                   {promoCodeStatus === "valid" ? (<>
                     <Typography variant="h6">
-                      {t('subtotal')}: {totalPrice.toFixed(2)} € / {totalPrice * 1.95.toFixed(2)} {i18n.language === 'bg' ? "лв" : "bgn"}
+                      {t('subtotal')}: {totalPrice.toFixed(2)} € / {(totalPrice * 1.95).toFixed(2)} {i18n.language === 'bg' ? "лв" : "bgn"}
                     </Typography>
                     <Typography variant="h6" sx={{ color: "green" }}>
                       {t('discountedPrice')}: -{discount}%
@@ -293,11 +293,11 @@ const Checkout = () => {
                       }}
                     />
                     <Typography variant="h6">
-                      {t('finalSubtotal')}: {totalPrice * (1 - discount / 100).toFixed(2)} € / {(totalPrice * (1 - discount / 100) * 1.95).toFixed(2)} {i18n.language === 'bg' ? "лв" : "bgn"}
+                      {t('finalSubtotal')}: {(totalPrice * (1 - discount / 100)).toFixed(2)} € / {(totalPrice * (1 - discount / 100) * 1.95).toFixed(2)} {i18n.language === 'bg' ? "лв" : "bgn"}
                     </Typography>
                   </>) : (
                     <Typography variant="h6" sx={{ color: "#FFFFFF" }}>
-                      {t('subtotal')}: {totalPrice.toFixed(2)} € / {totalPrice * 1.95.toFixed(2)} {i18n.language === 'bg' ? "лв" : "bgn"}
+                      {t('subtotal')}: {totalPrice.toFixed(2)} € / {(totalPrice * 1.95).toFixed(2)} {i18n.language === 'bg' ? "лв" : "bgn"}
                     </Typography>
                   )}
                 </Box>

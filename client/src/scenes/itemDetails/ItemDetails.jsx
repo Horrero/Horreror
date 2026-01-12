@@ -105,12 +105,12 @@ const ItemDetails = () => {
                     color="#FFFFFF"
                     ml="10px"
                   >
-                   / {item?.attributes?.discountPrice * 1.95.toFixed(2)} {i18n.language === 'bg' ? "лв" : "bgn"}
+                   / {(item?.attributes?.discountPrice * 1.95).toFixed(2)} {i18n.language === 'bg' ? "лв" : "bgn"}
                   </Typography>
                 </>
               ) : (
                 <Typography fontWeight="bold" fontSize={"20px"}>
-                  {item?.attributes?.price} € / {item?.attributes?.price * 1.95.toFixed(2)} {i18n.language === 'bg' ? "лв" : "bgn"}
+                  {item?.attributes?.price} € / {(item?.attributes?.price * 1.95).toFixed(2)} {i18n.language === 'bg' ? "лв" : "bgn"}
                 </Typography>
               )}
           </Box>

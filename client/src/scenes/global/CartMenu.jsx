@@ -138,7 +138,7 @@ const CartMenu = () => {
                       {/* PRICE */}
                       <Typography fontWeight="bold">
                         {item.attributes?.discountPrice || item.attributes.price} € / {
-                          (item.attributes?.discountPrice || item.attributes.price) * 1.95.toFixed(2)
+                          ((item.attributes?.discountPrice || item.attributes.price) * 1.95).toFixed(2)
                         } {i18n.language === 'bg' ? "лв" : "bgn"}
                       </Typography>
                     </FlexBox>
@@ -154,7 +154,7 @@ const CartMenu = () => {
             <FlexBox m="20px 0">
               <Typography fontWeight="bold">{t("subtotal")}</Typography>
               <Typography fontWeight="bold">
-                {totalPrice.toFixed(2)} € / {totalPrice * 1.95.toFixed(2)} {i18n.language === 'bg' ? "лв" : "bgn"}
+                {totalPrice.toFixed(2)} € / {(totalPrice * 1.95).toFixed(2)} {i18n.language === 'bg' ? "лв" : "bgn"}
               </Typography>
             </FlexBox>
             <Button
